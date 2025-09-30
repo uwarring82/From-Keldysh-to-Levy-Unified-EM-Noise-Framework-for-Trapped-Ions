@@ -1,0 +1,57 @@
+\section{Observable Signatures and Scattering Models}
+The unified L\'evy--Khintchine generator (Eq.~\ref{eq:levy-box}, Sec.~2.6) predicts 
+that ion heating arises from a combination of Gaussian diffusion and compound-Poisson jumps. 
+We now develop experimentally distinguishable signatures that allow independent extraction of these components.
+
+\noindent\textbf{(a) Langevin induced-dipole scattering}\quad
+\emph{Regime:} Low-energy ion--neutral collisions with polarizable neutral ($E \lesssim 1$~eV).\\
+\emph{Cross-section:}
+\[
+\frac{d\sigma}{d\Omega} = 
+\frac{\alpha e^2}{8\pi\epsilon_0^2 \mu^2 v^4}\,
+\frac{\sin^2\theta}{(1-\cos\theta)^4},
+\]
+with $\alpha$ the neutral polarizability. The total Langevin cross-section is 
+$\sigma_{\rm L} = \pi e\sqrt{\alpha/(\epsilon_0 E)} \propto E^{-1/2}$.\\
+\emph{Key feature:} Soft divergence at small $\Delta p$ (forward scattering), cut off by quantum diffraction $b_{\min}\sim \hbar/\mu v$.\\
+\emph{Consequence:} $\nu(\Delta p)$ has enhanced small-$\Delta p$ weight; CLT $\to$ near-Gaussian heating but with fat tails.\\
+\emph{Relevant systems:} Ca$^+$/Sr$^+$/Ba$^+$ with H$_2$, N$_2$, Ar backgrounds.
+
+\textit{Universal behavior:} 
+The Langevin form is \emph{universal} in the sense that it depends only on the neutral's polarizability $\alpha$, not on molecular details. 
+This implies that $\nu(\Delta p)$ is parametrized by just $\alpha$ and the velocity distribution $f(v)$, reducing the inference problem to fitting $\lambda$ (or equivalently $n_g$) and $T$ from experimental data.
+Departures from universality—resonant charge exchange, short-range chemistry, or high-energy collisions—introduce additional structure in $\nu(\Delta p)$ and require species-specific cross-sections.
+
+\medskip
+\noindent\textbf{(b) Hard-sphere scattering}\quad
+\emph{Regime:} Classical collisions with effective radius $R$.\\
+\emph{Cross-section:}
+\[
+\frac{d\sigma}{d\Omega} = \frac{R^2}{4\pi}.
+\]
+\emph{Key feature:} Isotropic scattering, momentum transfer peaked at $|\Delta p|=2\mu v$.\\
+\emph{Consequence:} $\nu(\Delta p)$ becomes sharply peaked, yielding bimodal $P(\Delta n)$.\\
+\emph{Relevant systems:} Test gases (He, Ne) in controlled background studies.
+
+\medskip
+\noindent\textbf{(c) Resonant charge-exchange}\quad
+\emph{Regime:} Ion--atom collisions with same species (e.g.\ Ca$^+$ + Ca).\\
+\emph{Cross-section:}
+\[
+\sigma(v) \approx \frac{\pi a_0^2}{1+(v/v_0)^2},
+\]
+with $v_0\sim \sqrt{\Delta E/\mu}$ from state energy defect $\Delta E$.\\
+\emph{Key feature:} Strong velocity dependence; event rate $\lambda\propto n_g\langle v\sigma(v)\rangle$ inherits thermal modulation.\\
+\emph{Consequence:} Waiting-time distribution becomes $T$-dependent; seasonal/diurnal modulations possible.\\
+\emph{Relevant systems:} Ca$^+$, Yb$^+$ with neutral Ca, Yb vapor.
+
+\medskip
+\noindent\textbf{(d) Coulomb scattering (stray charges)}\quad
+\emph{Regime:} Fly-by electrons/ions at distance $b\gg L_{\rm trap}$.\\
+\emph{Cross-section:} Rutherford form,
+\[
+\frac{d\sigma}{d\Omega} \propto \frac{1}{\sin^4(\theta/2)}.
+\]
+\emph{Key feature:} Extremely long range; strong small-angle divergence.\\
+\emph{Consequence:} Dominates if stray charges or cosmic rays penetrate; leads to anisotropic heating.\\
+\emph{Relevant systems:} Cosmic ray backgrounds, photoionization byproducts.

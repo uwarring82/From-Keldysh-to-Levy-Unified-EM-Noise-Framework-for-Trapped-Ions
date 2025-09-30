@@ -1,0 +1,43 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth]
+  \small
+  \def\W{4.6}
+  \def\H{6.2}
+  \def\gap{3.2}
+  \node at (0,0) {};
+  \draw[fill=gray!20] (-1.5,  \gap/2+0.6) rectangle (\W-1.5,  \gap/2+1.2);
+  \draw[fill=gray!20] (-1.5, -\gap/2-1.2) rectangle (\W-1.5, -\gap/2-0.6);
+  \node[font=\footnotesize] at (\W-1.5+0.8,  \gap/2+0.9) {Electrodes};
+  \node[font=\footnotesize] at (\W-1.5+0.8, -\gap/2-0.9) {Electrodes};
+  \begin{scope}
+    \clip (-1.5, -\H/2) rectangle (\W-1.5, \H/2);
+    \foreach \a in {0.8,1.2,1.6,2.0,2.4}{
+      \draw[gray!55, decorate, decoration={random steps, segment length=2mm, amplitude=0.6mm}]
+        plot[smooth cycle, tension=1] coordinates{
+          (-0.8,0) (0.2,\a) (1.2,0.4) (2.0,-0.2) (1.0,-\a) (-0.1,-0.4)};
+      \draw[gray!40, decorate, decoration={random steps, segment length=2mm, amplitude=0.5mm}]
+        plot[smooth cycle, tension=1] coordinates{
+          (0.0,0.2) (0.9,\a+0.4) (2.2,0.6) (3.0,-0.4) (2.0,-\a-0.4) (0.7,-0.6)};
+    }
+  \end{scope}
+  \node[font=\footnotesize, anchor=south] at (-1.2, \H/2-0.2) {$\mathbf{G}(\mathbf{r})$ (spatial structure)};
+  \filldraw[fill=white, draw=black, line width=0.6pt] (0.7,0) circle (0.08);
+  \node[font=\footnotesize, anchor=west] at (0.85,0) {$\mathbf{r}_0$};
+  \draw[thick, -Stealth] (-0.8, -0.4) -- ++(0.55,0.12);
+  \node[font=\footnotesize, align=left, anchor=east] at (-1.2,0.5)
+    {Thermal: $v\tau_{\rm coll} \ll L_{\rm trap}$\\Point-like impulse \checkmark};
+  \draw[thick, dashed, -Stealth] (2.3, -1.3) -- (3.6, 1.1);
+  \foreach \t in {0.15,0.38,0.62,0.85}{
+    \fill[black!70] ($(2.3, -1.3)!{\t}!(3.6,1.1)$) circle (0.06);
+  }
+  \node[font=\footnotesize, align=left, anchor=west] at (3.7, 0.5)
+    {Cosmic: $v\tau_{\rm coll} \sim L_{\rm trap}$\\Extended coherence, directional $|\hat{\mathbf{v}}\!\cdot\!\nabla\mathbf{G}|^2$};
+  \draw[very thin] (-1.2,-\gap/2) -- (-1.2,\gap/2);
+  \draw[-{Stealth[length=2mm]}] (-1.2,\gap/2) -- ++(-0.3,0);
+  \draw[-{Stealth[length=2mm]}] (-1.2,-\gap/2) -- ++(-0.3,0);
+  \node[font=\footnotesize, align=center, anchor=east] at (-1.6,0) {$L_{\rm trap}\ \sim\ \mathrm{mm}$};
+  \draw[very thin] (\W-1.0,-1.2) -- (\W-1.0,1.2);
+  \draw[-{Stealth[length=2mm]}] (\W-1.0,1.2) -- ++(0.3,0);
+  \draw[-{Stealth[length=2mm]}] (\W-1.0,-1.2) -- ++(0.3,0);
+  \node[font=\footnotesize, align=center, anchor=west] at (\W-0.6,0)
+    {$v\tau_{\rm coll}$: nm (thermal) vs.\ $\mu$m (fast)};
+\end{tikzpicture}

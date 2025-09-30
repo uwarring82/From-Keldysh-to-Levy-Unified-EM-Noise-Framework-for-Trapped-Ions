@@ -1,0 +1,41 @@
+\section{Inference Protocol}
+
+\paragraph{Recommended stroboscopic sequence.}
+\begin{enumerate}\itemsep0.2em
+  \item Prepare motional ground state $\lvert n=0\rangle$ (or a calibrated thermal $\langle n\rangle$).
+  \item Wait time $\tau$ (free evolution under noise).
+  \item Read out $n$ via sideband thermometry or time-of-flight.
+  \item Repeat $N$ times $\Rightarrow$ histogram $P(n\,|\,\tau)$ and time series $n(t)$.
+\end{enumerate}
+
+\paragraph{Sample-size guidelines.}
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{0.9\textwidth}{>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{4.2cm}}
+\hline
+\textbf{Target quantity} & \textbf{Required shots/events (order-of-magnitude)} \\
+\hline
+Detect $\kappa_3 \neq 0$ at $3\sigma$ & $\sim 10^4$ stroboscopic shots \\
+Reconstruct $\nu(\Delta n)$ (5 bins)  & $\sim 10^5$ shots \\
+Test heavy-tail exponent $\alpha$      & $\sim 10^6$ events \\
+Allan variance rollover near $1/\lambda$ & hours of continuous trace \\
+Sideband asymmetry vs.\ $\omega$ map   & $\sim 10^2$ frequency scans \\
+\hline
+\end{tabularx}
+\end{table}
+
+\paragraph{Systematic error sources (and mitigations).}
+\begin{itemize}\itemsep0.2em
+  \item \textbf{Readout noise} smears $P(\Delta n)$: calibrate with known coherent kicks and deconvolve.
+  \item \textbf{Motional dephasing} during $\tau$: ensure $\tau \ll 1/\Gamma_{\rm dephase}$ or include dephasing in the likelihood model.
+  \item \textbf{Multi-ion coupling}: analyze in normal-mode basis; report mode-resolved $\nu(\Delta n)$.
+  \item \textbf{Background drift / non-stationarity}: use sliding-window estimators for $\lambda(t)$, $\langle \Delta n \rangle(t)$.
+\end{itemize}
+
+\paragraph{Estimation outputs (minimum set).}
+\begin{itemize}\itemsep0.2em
+  \item Cumulants $\kappa_2(\tau)$, $\kappa_3(\tau)$, $\kappa_4(\tau)$; Gaussian vs.\ non-Gaussian decision.
+  \item Change-point inference of jump times $\{t_k\}$ and sizes $\{\Delta n_k\}$; empirical $\hat{\nu}(\Delta n)$.
+  \item Rollover in $\sigma_A^2(\tau)$ and sideband asymmetry vs.\ $\omega$ to constrain $|\mathbf{G}(\omega)|^2$.
+\end{itemize}% Inference protocol placeholder

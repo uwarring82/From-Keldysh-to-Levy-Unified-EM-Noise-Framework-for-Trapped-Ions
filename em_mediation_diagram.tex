@@ -1,0 +1,37 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth, node distance=2.cm]
+  \small
+  \tikzset{
+    ion/.style={circle, minimum size=7mm, inner sep=0pt, draw=black, fill=blue!35},
+    block/.style={draw, rounded corners, fill=gray!12, inner sep=6pt},
+    annot/.style={align=left, text width=3.4cm},
+    mathnote/.style={font=\footnotesize, inner sep=1pt}
+  }
+  \node[ion,label=above:{Ion}] (ion) {};
+  \draw[line width=0.5pt] ([yshift=-0.35cm]ion.south) -- ++(0,-0.15)
+    decorate[decoration=zigzag]{ -- ++(0,-0.5) } -- ++(0,-0.15);
+  \node[below=1.4cm of ion, font=\footnotesize] {harmonic confinement};
+  \node[block, minimum width=3.3cm, minimum height=2.6cm, right=of ion] (G) {};
+  \begin{scope}
+    \clip (G.south west) rectangle (G.north east);
+    \fill[pattern=north west lines, pattern color=gray!60] 
+      ($(G.south west)+(0.1,0.1)$) rectangle ($(G.north east)+(-0.1,-0.1)$);
+  \end{scope}
+  \node at (G) {$\mathbf{G}(\mathbf{r}_0,\mathbf{r};\omega)$};
+  \node[mathnote, below=0.35cm of G] {EM response / trap geometry};
+  \node[right=of G] (src) {};
+  \node[annot, above=1.0 cm of src, anchor=west] (denseLab) {Dense sources $\rightarrow$ Gaussian $S_{JJ}$\\[2pt] $\mathcal{D}_G[\rho]$};
+  \foreach \i in {0,...,8}{
+    \draw[-{Stealth[length=2mm]}, line width=0.3pt]
+      ($(denseLab.east)+(0.2,{-0.9+0.2*\i})$) -- ++(0.6,0.05);
+    \fill[black!65] ($(denseLab.east)+({0.1+0.15*mod(\i,3)},{-0.92+0.2*\i})$) circle (0.035);
+  }
+  \node[annot, below=0.8cm of src, anchor=west] (sparseLab) {Sparse impulses $\rightarrow$ Poisson $\nu(\Delta p)$\\[2pt] $\mathcal{J}_P[\rho]$};
+  \foreach \p/\dx in {0.5/0.9, -0.2/0.6, 0.1/1.1}{
+    \fill[black!65] ($(sparseLab.east)+(\dx,\p)$) circle (0.07);
+    \draw[-{Stealth[length=2.3mm]}] ($(sparseLab.east)+(\dx-0.25,\p-0.05)$) -- ++(0.25,0.05);
+  }
+  \draw[<->, line width=0.7pt] (ion) -- node[above, mathnote] {$\mathbf{F}(t)=q\mathbf{E}$} (G.west);
+  \draw[<->, line width=0.7pt] (G.east) -- node[above, mathnote] {mediated by $\mathbf{J}$} ($(src)+(0.9,0)$);
+  %\node[font=\footnotesize, align=center, below=1.0cm of G] 
+   % %Unified picture: All mechanisms enter through EM coupling;\\ statistics of $\mathbf{J}(\mathbf{r},t)$ determine Gaussian vs.\ jump dynamics.};
+\end{tikzpicture}
