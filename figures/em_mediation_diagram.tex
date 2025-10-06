@@ -13,7 +13,7 @@
   \node[block, minimum width=3.3cm, minimum height=2.6cm, right=of ion] (G) {};
   \begin{scope}
     \clip (G.south west) rectangle (G.north east);
-    \fill[pattern=north west lines, pattern color=gray!60] 
+    \fill[pattern=north west lines, pattern color=gray!60]
       ($(G.south west)+(0.1,0.1)$) rectangle ($(G.north east)+(-0.1,-0.1)$);
   \end{scope}
   \node at (G) {$\mathbf{G}(\mathbf{r}_0,\mathbf{r};\omega)$};
@@ -32,6 +32,4 @@
   }
   \draw[<->, line width=0.7pt] (ion) -- node[above, mathnote] {$\mathbf{F}(t)=q\mathbf{E}$} (G.west);
   \draw[<->, line width=0.7pt] (G.east) -- node[above, mathnote] {mediated by $\mathbf{J}$} ($(src)+(0.9,0)$);
-  %\node[font=\footnotesize, align=center, below=1.0cm of G] 
-   % %Unified picture: All mechanisms enter through EM coupling;\\ statistics of $\mathbf{J}(\mathbf{r},t)$ determine Gaussian vs.\ jump dynamics.};
 \end{tikzpicture}

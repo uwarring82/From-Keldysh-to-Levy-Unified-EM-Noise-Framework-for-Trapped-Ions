@@ -1,0 +1,30 @@
+\section{Spatial and Temporal Coherence Effects}
+\label{sec:spatial-coherence}
+\begin{tcolorbox}[title=Fast scatterers: spatial coherence effects]
+For a moving scatterer with trajectory $\mathbf{r}_k(t)=\mathbf{r}_0+\mathbf{v}t$, the current density is
+\[
+\mathbf{j}_k(\mathbf{r},t) = \mathbf{j}^{(0)}_k(t)\,\delta^{(3)}(\mathbf{r}-\mathbf{r}_k(t)).
+\]
+The force spectrum becomes
+\[
+F_k(\omega) = q \int dt\, e^{\mathrm{i}\omega t}\,\mathbf{G}(\mathbf{r}_0,\mathbf{r}_k(t);\omega)\cdot\mathbf{j}^{(0)}_k(t).
+\]
+
+\textbf{Velocity regimes:}
+\begin{itemize}\itemsep0.2em
+  \item Thermal background ($v \sim 500$~m/s, $\tau_{\rm coll}\sim 10$~ps): $v\tau_{\rm coll}\sim 5$~nm $\ll L_{\rm trap}$ $\to$ point-impulse limit.
+  \item Fast cosmics ($v\sim 0.1c$, $\tau_{\rm coll}\sim 1$~ps): $v\tau_{\rm coll}\sim 30~\mu$m $\sim L_{\rm trap}$ $\to$ extended-coherence regime.
+\end{itemize}
+
+\textbf{Impact:} Spatial variation of $\mathbf{G}$ introduces directional coupling, $|F_k(\omega)|^2 \propto |\hat{\mathbf{v}}\cdot\nabla\mathbf{G}|^2$, breaking isotropy.
+
+\textbf{Observable:} Anisotropic heating as a function of trap orientation relative to a collimated beam or fast flux (see Fig.~\ref{fig:trajectory_coherence}).
+\end{tcolorbox}
+
+\begin{figure}[t]
+  \centering
+  \input{figures/trajectory_coherence_diagram}
+  \caption{Representative geometry for extended trajectories producing anisotropic heating signatures.
+  The path length $v\tau_{\rm coll}$ relative to trap dimensions $L_{\rm trap}$ determines whether the point-impulse approximation holds.}
+  \label{fig:trajectory_coherence}
+\end{figure}

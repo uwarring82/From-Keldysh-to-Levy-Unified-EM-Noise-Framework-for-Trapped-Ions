@@ -1,0 +1,10 @@
+\section{Uncertainties and Validation}
+The Guardian Integrity Model structures validation across four pillars.
+\begin{enumerate}
+  \item \textbf{Negative controls (null channels):} Monitor a reference ion or dark trap region to capture technical drifts.
+  \item \textbf{Statistical rigor:} Power analyses ensure sufficient shots to detect targeted cumulants; Bayesian model evidence quantifies preference between diffusion and jump hypotheses.
+  \item \textbf{Immutable archival:} Each dataset is hashed and archived alongside the Git commit hash of analysis scripts to guarantee reproducibility.
+  \item \textbf{Cross-validation:} Independent estimators—time-domain cumulants, frequency-domain spectra, and Bayesian posteriors—must agree within quoted credible intervals.
+\end{enumerate}
+
+Validation proceeds iteratively: calibrate null channels, acquire stroboscopic data, update the hierarchical model, and repeat until all pillars converge.

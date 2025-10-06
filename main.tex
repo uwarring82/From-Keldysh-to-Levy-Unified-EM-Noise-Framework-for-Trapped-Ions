@@ -1,46 +1,68 @@
-
+%==================================================
+%  From Keldysh to Lévy — Unified EM Noise Framework
+%==================================================
 \documentclass[11pt,a4paper]{article}
-\usepackage{amsmath,amssymb,physics}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,patterns,decorations.pathmorphing,calc}
-\usepackage{tcolorbox}
+
+%------------------- Packages ---------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
 \usepackage{tabularx}
-\usepackage{microtype}
-\usepackage{caption}
-\captionsetup{justification=raggedright,singlelinecheck=false}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{authblk}
+\usepackage{csquotes}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{patterns,decorations.pathmorphing,arrows.meta,positioning}
 \usepackage{hyperref}
 
-\title{From Keldysh to L\'evy: Unified EM Noise Framework for Trapped Ions}
-\author{Ulrich Warring et al.}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = blue,
+  citecolor = blue,
+  urlcolor  = blue
+}
+
+%------------------- Metadata ---------------------
+\title{From Keldysh to L\'evy:\\
+  A Unified Framework for Electromagnetic Noise in Trapped Ions}
+
+\author[1]{Ulrich Warring}
+\author[1]{D.\ Palani}
+\author[1]{T.\ Schätz}
+\affil[1]{Physikalisches Institut, Universität Freiburg, Germany}
+
 \date{\today}
 
+%------------------- Document ---------------------
 \begin{document}
 \maketitle
 
 \begin{abstract}
-We derive a unified first-principles description of motional heating in trapped ions by integrating out electromagnetic degrees of freedom in the Keldysh formalism. 
-All noise mechanisms---technical field fluctuations and collisional impulses---enter through stochastic current sources coupled via the trap's Green tensor. 
-The resulting open-system dynamics take the form of a L\'evy--Khintchine generator (Gaussian diffusion + compound-Poisson jumps), with explicit links to scattering cross-sections. 
-We provide experimentally discriminating observables, scattering-model formulas, and a practical inference protocol for reconstructing the jump-size L\'evy measure from stroboscopic measurements.
+We present a framework connecting microscopic descriptions of electromagnetic noise
+from the Keldysh formalism to L\'evy-statistics-based macroscopic noise models.
+The goal is to provide a unified language for analyzing fluctuating fields
+that affect trapped-ion motion and internal coherence,
+bridging theory, scattering models, and experimental inference.
 \end{abstract}
 
-\tableofcontents
-
-\input{introduction}
-\input{theory_sections}
-\input{discriminants_table}
-\input{scattering_formulas}
-\input{spatial_coherence}
-\begin{figure}[h]
-\centering
-\input{trajectory_coherence_diagram}
-\caption{%
-\textbf{Spatial coherence effects for fast scatterers.}
-When the trajectory extent $v\tau_{\rm coll}$ approaches the trap dimension $L_{\rm trap}$, $\mathbf{G}(\mathbf{r})$ varies along the path, leading to directional coupling $|F_k(\omega)|^2 \propto |\hat{\mathbf{v}}\!\cdot\!\nabla\mathbf{G}|^2$ and anisotropic heating.}
-\label{fig:trajectory_coherence}
-\end{figure}
-\input{inference_protocol}
+%------------------- Section Includes --------------
+\input{sections/01_introduction}
+\input{sections/02_regimes_overview}
+\input{sections/03_theory_foundations}
+\input{sections/04_scattering_models}
+\input{sections/05_em_mediation}
+\input{sections/06_spatial_temporal_coherence}
+\input{sections/07_inference_protocol}
+\input{sections/08_discriminants_table}
+\input{sections/09_uncertainties_validation}
+\input{sections/10_conclusion_outlook}
 
 \bibliographystyle{unsrt}
-\bibliography{refs}
+\bibliography{bib/refs}
+
 \end{document}

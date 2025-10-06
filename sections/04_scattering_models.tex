@@ -1,0 +1,52 @@
+\section{Observable Signatures and Scattering Models}
+\label{sec:scattering-models}
+The unified L\'evy--Khintchine generator (Eq.~\ref{eq:levy-box}) predicts that ion heating arises from a combination of Gaussian diffusion and compound-Poisson jumps.
+We develop experimentally distinguishable signatures that allow independent extraction of these components.
+
+\noindent\textbf{(a) Langevin induced-dipole scattering}\quad
+\emph{Regime:} Low-energy ion--neutral collisions with polarizable neutral ($E \lesssim 1$~eV).\\
+\emph{Cross-section:}
+\[
+\frac{d\sigma}{d\Omega} =
+\frac{\alpha e^2}{8\pi\epsilon_0^2 \mu^2 v^4}\,
+\frac{\sin^2\theta}{(1-\cos\theta)^4},
+\]
+with $\alpha$ the neutral polarizability.
+The total Langevin cross-section is $\sigma_{\rm L} = \pi e\sqrt{\alpha/(\epsilon_0 E)} \propto E^{-1/2}$.\\
+\emph{Key feature:} Soft divergence at small $\Delta p$ (forward scattering), cut off by quantum diffraction $b_{\min}\sim \hbar/\mu v$.\\
+\emph{Consequence:} $\nu(\Delta p)$ has enhanced small-$\Delta p$ weight; CLT $\to$ near-Gaussian heating but with fat tails.\\
+\emph{Relevant systems:} Ca$^+$, Sr$^+$, Ba$^+$ with H$_2$, N$_2$, Ar backgrounds.
+
+\textit{Universal behavior:}
+The Langevin form is \emph{universal} in that it depends only on the neutral's polarizability $\alpha$, not on molecular details.
+This implies that $\nu(\Delta p)$ is parametrized by just $\alpha$ and the velocity distribution $f(v)$, reducing the inference problem to fitting $\lambda$ (or equivalently $n_g$) and $T$ from experimental data.
+Departures from universality—resonant charge exchange, short-range chemistry, or high-energy collisions—introduce additional structure in $\nu(\Delta p)$ and require species-specific cross-sections.
+
+\medskip
+\noindent\textbf{(b) Hard-sphere scattering}\quad
+\emph{Regime:} Classical collisions with effective radius $R$.\\
+\emph{Cross-section:}
+\[
+\frac{d\sigma}{d\Omega} = \frac{R^2}{4\pi}.
+\]
+\emph{Key feature:} Isotropic scattering, momentum transfer peaked at $|\Delta p|=2\mu v$.\\
+\emph{Consequence:} $\nu(\Delta p)$ becomes sharply peaked, yielding bimodal $P(\Delta n)$.\\
+\emph{Relevant systems:} Test gases (He, Ne) in controlled background studies.
+
+\medskip
+\noindent\textbf{(c) Resonant charge exchange}\quad
+\emph{Regime:} Ion--atom collisions with same species (e.g., Ca$^+$ + Ca).\\
+\emph{Cross-section:}
+\[
+\sigma_{\rm CX}(E) \approx \sigma_0\left(1 + \frac{E}{E_0}\right)^{-1/2},
+\]
+with $\sigma_0$ set by resonant channel strength.
+Charge exchange swaps internal states, producing state-dependent heating.
+
+\medskip
+\noindent\textbf{(d) Charged dust grains}\quad
+\emph{Regime:} Occasional Coulomb interactions with micron-scale charged particles.\\
+\emph{Characteristic:} Large impulse events with $|\Delta p| \gg \mu v$, leading to heavy-tailed $\nu(\Delta p)$.
+\emph{Observable:} Rare, multi-phonon jumps and long-lived charge-induced fields.
+
+These models feed directly into the inference protocol of Sec.~\ref{sec:inference-protocol} and the discriminants summarized in Sec.~\ref{sec:discriminants-table}.
