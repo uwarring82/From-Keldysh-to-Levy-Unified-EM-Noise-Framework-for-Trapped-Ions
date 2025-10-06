@@ -91,6 +91,43 @@ Table~1 (Sec.~3) provides experimentally accessible discriminants
 optimized for this intermediate regime, where neither limit dominates 
 and model selection becomes nontrivial.
 
+\subsection{Multiple microscopic sources within each regime}
+While the L\'evy--Khintchine form (Eq.~\ref{eq:levy-box}) distinguishes 
+Gaussian diffusion, compound-Poisson jumps, and heavy-tailed processes as 
+\emph{statistical regimes}, each regime can in practice host several 
+microscopic contributions. In the Gaussian sector, Johnson noise, surface 
+patch fluctuations, and technical pickup all superpose in the current 
+spectrum $S_{JJ}$, yielding an effective diffusion rate. In the Poisson 
+sector, background gas collisions, cosmic ray events, and photoelectron 
+kicks all contribute additively to the jump measure 
+$\nu(\Delta p) = \sum_i \nu_i(\Delta p)$. 
+Even in the heavy-tailed case, if multiple scattering mechanisms are present, 
+the \emph{heaviest tail dominates} the asymptotic behavior: the effective 
+tail exponent $\alpha$ is set by whichever process has the smallest $\alpha$ 
+(slowest decay). Thus, a single long-range Coulomb scatterer can mask 
+Langevin collisions at large $\Delta p$.
+
+\paragraph{When mechanisms can be separated.}
+While statistical discriminants measure the aggregate within each regime, 
+independent variation of physical parameters can isolate contributions:
+\begin{itemize}
+\item \textbf{Controlled pressure scans} separate gas collisions $(\lambda \propto n_g)$ from fixed backgrounds (cosmic rays, technical noise).
+\item \textbf{Temporal modulation} separates temperature-dependent 
+  resonances (e.g., charge exchange with seasonal/diurnal T variation) 
+  from constant sources.
+\item \textbf{Trap orientation relative to Earth} can reveal cosmic ray 
+  directionality vs. isotropic local sources.
+\end{itemize}
+In contrast, decomposing \emph{within} a sector (e.g., separating Johnson 
+noise from patch-potential fluctuations in the Gaussian $S_{JJ}$) typically 
+requires material-specific modeling or dedicated electrode studies 
+\cite{Brownnutt2015}.
+
+The inference protocol (Sec.~5) accounts for this by fitting 
+\emph{mixture models}: a dominant Gaussian background plus 
+one or more Poisson processes, with relative weights 
+determined from data rather than assumed a priori.
+
 \subsection{From Momentum to Phonon Jumps}
 Experimentally, jumps are resolved in motional phonon number $n$. 
 Momentum transfer $\Delta p$ maps to phonon transitions via
