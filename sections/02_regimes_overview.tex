@@ -1,9 +1,116 @@
-\section{Noise Regimes Overview}
-The trapped-ion environment exhibits a continuum of noise processes ranging from dense technical fields to sparse collisional events.
-For practical modeling we categorize regimes by the compound-Poisson event rate $\lambda$ relative to the experimental interrogation time $\tau$:
+%==================================================
+%  Section 2: Noise Regimes and Motional Responses
+%==================================================
+\section{Noise Regimes and Motional Responses}
+\label{sec:noise_regimes}
+
+Environmental fluctuations couple to a trapped ion’s harmonic motion either
+as effectively continuous fields or as discrete impulses.  Both arise from
+stochastic current sources $J(\mathbf r,t)$ and are mediated by the trap’s
+electromagnetic Green tensor $G(\mathbf r_0,\mathbf r;\omega)$.
+
+To classify temporal statistics we use the dimensionless product
+$\lambda\tau$, which counts independent events within one experimental
+interrogation time~$\tau$.  For impulsive processes $\lambda$ denotes the
+Poisson rate of discrete events; for continuous Gaussian fields,
+$\lambda^{-1}$ represents an effective correlation time $\tau_c$, so that
+$\lambda\tau\!\sim\!\tau/\tau_c$ measures the number of independent
+fluctuation intervals.  \emph{Crucially, $\lambda\tau$ characterizes event
+statistics, not the frequency content of the noise spectrum.}
+Heating and dephasing depend on \emph{spectral weight} at different
+frequencies, independent of whether the statistics are diffusive or sparse.
+
+%----------------------------------------
+\paragraph{Diffusive regime ($\lambda\tau\!\gg\!1$).}
+Many independent fluctuations accumulate and the central-limit theorem
+applies: force statistics are well described by a Gaussian process.
+The ion’s energy changes at a rate set by the near-resonant spectral weight
+of the force noise filtered by the mechanical susceptibility
+$\chi(\omega)$ (derived in Sec.~\ref{sec:theory_foundations}):
+\[
+\frac{d\langle n\rangle}{dt}
+ = \frac{1}{4 m \hbar \omega_t}\!\int_{-\infty}^{\infty}\!
+   |\chi(\omega)|^{2} S_F(\omega)\,d\omega,
+\qquad S_F(\omega)=q^{2}S_E(\omega).
+\]
+The process is statistically Gaussian, but this says nothing about phase
+coherence: dephasing can be strong if low-frequency spectral weight is large
+(e.g.\ $1/f$ noise), and weak if such weight is small.
+
+%----------------------------------------
+\paragraph{Intermediate regime ($\lambda\tau\!\sim\!1$).}
+Only a few fluctuations occur within~$\tau$.  The motion alternates between
+free evolution and discrete perturbations, producing non-Gaussian
+statistics with measurable higher-order cumulants and characteristic
+roll-overs in the Allan variance.  Each impulse contributes \emph{both}
+energy change and a phase shift, so heating and dephasing coexist.
+This regime is particularly diagnostic of underlying source statistics
+(cf.\ Sec.~\ref{sec:discriminants_summary}).
+
+%----------------------------------------
+\paragraph{Sparse regime ($\lambda\tau\!\ll\!1$).}
+Isolated impulses are resolvable in time with exponential waiting-time
+distribution $p(t)=\lambda e^{-\lambda t}$.  Between impulses the oscillator
+evolves coherently; each rare impulse applies a finite displacement in
+phase space, producing a discrete energy jump together with a phase reset.
+The observables are step-like heating and discrete, resolvable phase
+discontinuities.
+
+%----------------------------------------
+\subsection*{Heating and Dephasing Channels: Spectral View and Operators}
+
+Environmental noise modifies (i) the \emph{energy} of the oscillator
+(heating) and (ii) the \emph{phase} of its coherent motion (dephasing).
+These effects are controlled by different parts of the spectrum of the
+electric field at the ion.
+
 \begin{itemize}
-  \item \textbf{Diffusive limit ($\lambda\tau \gg 1$):} Many small kicks merge into Gaussian diffusion with spectral density $S_F(\omega)$.
-  \item \textbf{Intermediate ($\lambda\tau \sim 1$):} Both diffusion and discrete jumps appear in time traces; higher-order cumulants reveal jump statistics.
-  \item \textbf{Sparse ($\lambda\tau \ll 1$):} Individual events are resolvable and obey Poisson statistics with waiting-time PDF $p(t) = \lambda e^{-\lambda t}$.
+  \item \textbf{Heating (energy exchange).}
+  With $H_\mathrm{int}=-q x E(t)$, the heating rate is determined by the
+  force-noise spectrum $S_F(\omega)=q^2 S_E(\omega)$ filtered by the
+  mechanical susceptibility $|\chi(\omega)|^{2}$.  In the high-$Q$ limit the
+  integral above reduces to the familiar near-resonant expression
+  $\dot{\langle n\rangle}\!\approx\! (q^{2}/4m\hbar\omega_t)\,S_E(\omega_t)$.
+  Off-resonant spectral weight contributes according to
+  $|\chi(\omega)|^{2}$ and should not be neglected when linewidths are broad
+  or spectra structured.
+
+  \item \textbf{Dephasing (phase diffusion without energy exchange).}
+  Slow fluctuations of the trapping potential or stray fields modulate the
+  instantaneous frequency
+  $\omega_t\!\rightarrow\!\omega_t+\delta\omega(t)$,
+  producing a random phase
+  $\phi(t)=\int_{0}^{t}\delta\omega(t')\,dt'.$
+  The coherence of a motional superposition decays as
+  $\exp[-\tfrac{1}{2}\langle(\Delta\phi)^{2}\rangle]$, with
+  \[
+    \langle(\Delta\phi)^{2}\rangle
+      = 2\!\int_{0}^{\infty}\! S_{\delta\omega}(\Omega)
+        \!\left(\frac{\sin(\Omega t/2)}{\Omega/2}\right)^{2}\! d\Omega .
+  \]
+  For a harmonic trap potential $U\!\propto\!x^{2}$, stray-field
+  fluctuations $\delta E(t)$ shift the trap frequency as
+  $\delta\omega(t)\!\propto\!\delta E(t)/x_{0}$,
+  so the spectrum $S_{\delta\omega}(\Omega)$ traces the
+  low-frequency limit of the electric-field noise $S_{E}(\Omega)$.
+  In the Markov limit $S_{\delta\omega}(0)$ defines an exponential
+  dephasing time~$T_{\phi}$, while quasi-static noise produces Gaussian
+  decay in time.
 \end{itemize}
-The same classification applies to spatial coherence: when the scatterer transit length $v\tau_{\rm coll}$ is small compared to trap dimensions, the point-impulse approximation holds; otherwise trajectory-resolved modeling (Sec.~\ref{sec:spatial-coherence}) is required.
+
+\noindent\textbf{Unified impulse picture.}
+A single momentum impulse implements the unitary displacement
+$U_{\Delta p}=\exp[-i\,\Delta p\,x/\hbar]$,
+which simultaneously increases energy and shifts the phase of the coherent
+state.  Accordingly, it is incorrect to assign ``kicks~$\rightarrow$~heating''
+and ``timing~$\rightarrow$~dephasing'' to separate channels; both arise from
+the same operator action, while their \emph{observed balance} is governed by
+the spectral content of $S_E(\omega)$ and the trap’s susceptibility.
+
+\medskip
+\noindent\textbf{Summary.}
+The parameter $\lambda\tau$ organizes temporal statistics
+(diffusive~$\leftrightarrow$~sparse), whereas heating and dephasing are set by
+\emph{which} parts of the spectrum carry power:
+near~$\omega_t$ for heating and near~0 for dephasing.
+Either contribution can dominate in any regime.
