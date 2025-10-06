@@ -101,4 +101,12 @@ This connects scattering cross-sections $d\sigma/d\Omega$ to measurable $\nu(\De
 \paragraph{Takeaway.}
 The ion's heating is universally described by Eq.~\eqref{eq:levy-box}, independent of microscopic mechanism.
 The experimentally accessible regime is often \emph{intermediate}, where $\lambda \tau \sim 1{-}10$ and both Gaussian and jump terms contribute measurably.
-Section~\ref{sec:discriminants-table} develops observables—cumulants, waiting times, Allan variance—that discriminate $\mathcal{D}_G$ versus $\mathcal{J}_P$ even when both are present simultaneously.
+Section~\ref{sec:observable_signatures} develops observables—cumulants, waiting times, and Allan variance—that discriminate $\mathcal{D}_G$ versus $\mathcal{J}_P$ even when both are present simultaneously.
+
+\subsection{Heavy-Tailed L\'evy Processes}
+Heavy-tailed L\'evy flights extend the compound-Poisson picture to jump-size distributions with divergent variance,
+$\nu(\Delta p)\!\propto\! |\Delta p|^{-1-\alpha}$ for $0<\alpha<2$.
+In this regime the second moment diverges and the central-limit theorem no longer applies, producing anomalous diffusion $\langle (\Delta x)^2 \rangle \propto t^{2/\alpha}$.
+Such processes may arise from rare large-impulse events—e.g. Coulomb scattering on charged dust grains or micro-discharge spikes.
+Their generator replaces the finite-variance term in Eq.~(7) by the fractional Laplacian $-D_\alpha(-\partial_x^2)^{\alpha/2}$.
+A full quantitative treatment is left for future work.
