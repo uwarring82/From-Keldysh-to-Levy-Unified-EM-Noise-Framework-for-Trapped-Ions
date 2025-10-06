@@ -1,3 +1,42 @@
-\section{Conclusion and Outlook}
-We have outlined a unified electromagnetic-noise framework that connects microscopic Keldysh treatments with macroscopic L\'evy statistics for trapped ions.
-Future work will extend these models to multi-ion crystals, integrate real-time Bayesian controllers, and benchmark against surface-electrode experiments with engineered scatterer fluxes.
+%==================================================
+%  Section 10: Conclusions and Outlook
+%==================================================
+\section{Conclusions and Outlook}
+\label{sec:conclusion}
+
+We have presented a first-principles theoretical framework that unifies
+two traditionally distinct regimes of ion heating---continuous Gaussian diffusion
+and discrete Poissonian jumps---within a single L\'evy--Khintchine master equation
+derived from the Keldysh formalism.
+This formulation connects microscopic current fluctuations in the environment
+to experimentally measurable motional heating rates through the trap's
+electromagnetic Green tensor.
+
+The resulting framework provides a transparent hierarchy:
+source statistics determine the form of the noise generator,
+while the Green tensor mediates how those sources couple to the ion.
+This approach clarifies why different physical processes---
+technical Johnson noise, surface charge fluctuations, or residual-gas collisions---
+produce distinct spectral and statistical signatures.
+
+The model's applicability is limited by the assumptions summarized in
+Sec.~\ref{sec:model_assumptions}.
+Within that domain, it provides a rigorous and extensible foundation
+for analyzing noise in trapped-ion systems used for quantum information
+and precision metrology.
+
+Future directions include:
+\begin{itemize}
+  \item Extending the formalism to correlated multi-ion motion,
+        where the Green tensor becomes a matrix coupling multiple spatial modes.
+  \item Developing non-Markovian generalizations to describe noise sources
+        with long temporal memory such as \(1/f\) patch fluctuations.
+  \item Incorporating heavy-tailed L\'evy processes to model rare but large
+        energy-transfer events and exploring their experimental observability.
+  \item Implementing numerical validation of the inference protocol
+        proposed in Sec.~\ref{sec:inference_protocol} using synthetic data.
+\end{itemize}
+
+Together, these steps will strengthen the framework's role as a quantitative bridge
+between microscopic theory and experimental diagnostics of noise
+in complex trapping architectures.

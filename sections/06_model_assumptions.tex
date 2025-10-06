@@ -1,0 +1,51 @@
+%==================================================
+%  Section 6: Model Assumptions and Validity Domain
+%==================================================
+\section{Model Assumptions and Validity Domain}
+\label{sec:model_assumptions}
+
+The unified L\'evy--Keldysh framework presented in the preceding sections relies on several
+physical and mathematical approximations that define its domain of validity.
+We summarize these explicitly below to delineate the scope of applicability
+and to prevent over-interpretation beyond their justified range.
+
+\subsection{Linear Coupling Approximation}
+The system--bath interaction Hamiltonian is taken to be
+\begin{equation}
+H_\mathrm{int}(t) = -q\,x(t)\,E_x(r_0,t),
+\end{equation}
+which assumes a linear coupling between the ion's displacement and the local electric field.
+This approximation is accurate when the ion's motion remains small compared to the spatial
+scale over which the field varies, \(x \ll r_0\).  
+In regimes with strong anharmonic confinement or large motional excitation,
+higher-order coupling terms \(x^2 E'(r_0,t)\) may contribute and modify the effective noise spectrum.
+
+\subsection{Markovian Bath Assumption}
+The derivation of the L\'evy--Khintchine generator presumes a memoryless environment,
+where the bath correlation time \(\tau_c\) is short compared to the ion's motional period
+\(\omega_t^{-1}\).  
+Under this condition, the noise statistics can be encoded in a time-independent generator.
+For slow environmental processes such as \(1/f\) charge-patch fluctuations,
+a non-Markovian generalization with an explicit memory kernel \(K(t-t')\)
+would be required to accurately capture temporal correlations.
+
+\subsection{Stationarity and Ergodicity}
+The framework assumes stationary noise statistics,
+i.e.\ correlation functions depend only on time differences.
+Ergodicity ensures that ensemble averages coincide with long-time averages,
+enabling experimental inference from single-trajectory measurements.
+
+\subsection{Trap Geometry and Green Tensor}
+All spatial field correlations are expressed through the electromagnetic Green tensor
+\(G(r,r';\omega)\), which is geometry-dependent and, in practice,
+evaluated numerically for a given electrode configuration.
+Uncertainties in geometry modeling directly propagate into predictions
+of heating rates and noise spectra.  
+Validation of \(G\) against experimental benchmarks is therefore essential
+for quantitative accuracy.
+
+\subsection{Summary of Validity Domain}
+The present formalism accurately describes single-ion motional heating
+in the linear, Markovian, and stationary limits.
+Extensions to multi-ion or correlated environments are conceptually straightforward
+but lie beyond the current manuscript's scope and will be pursued in future work.
