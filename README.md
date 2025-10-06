@@ -1,45 +1,90 @@
-# From Keldysh to Lévy: Unified EM Noise Framework for Trapped Ions
+# From Keldysh to Lévy — Unified EM Noise Framework for Trapped Ions
 
-This repository contains the LaTeX source for our note deriving a 
-unified open-system description of ion heating. The framework bridges 
-Gaussian field noise and discrete collision events via the 
-Lévy–Khintchine generator obtained from the Keldysh formalism.
+This repository hosts the LaTeX source for our paper  
+**“From Keldysh to Lévy: A Unified Framework for Electromagnetic Noise in Trapped Ions.”**
 
-## Compile
+---
 
-To build the PDF locally:
+## 📘 Scope
+The manuscript develops a cross-regime description of environmental noise affecting trapped ions,
+bridging the Keldysh formalism with Lévy-type statistics.
+It unifies **theory**, **scattering models**, and **inference protocols** into a coherent framework
+for identifying noise sources and collision signatures in experiments.
+
+---
+
+## 🧠 Structure
+
+```
+sections/
+  01_introduction.tex
+  02_regimes_overview.tex
+  03_theory_foundations.tex
+  04_scattering_models.tex
+  05_em_mediation.tex
+  06_spatial_temporal_coherence.tex
+  07_inference_protocol.tex
+  08_discriminants_table.tex
+  09_uncertainties_validation.tex
+  10_conclusion_outlook.tex
+figures/
+bib/refs.bib
+```
+
+Each `.tex` file is an independent section, included by `main.tex`.
+
+---
+
+## 🛠️ Build Instructions
+
+### Local build
+Requires TeX Live or MiKTeX with `latexmk`.
 
 ```bash
-latexmk -pdf main.tex
+git clone https://github.com/uwarring82/From-Keldysh-to-Levy-Unified-EM-Noise-Framework-for-Trapped-Ions.git
+cd From-Keldysh-to-Levy-Unified-EM-Noise-Framework-for-Trapped-Ions
+make pdf
 ```
 
-or manually:
+Output: `main.pdf`
+
+### Clean up
 
 ```
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
+make clean
 ```
 
-Structure
-•main.tex – master file, includes all sections
-•introduction.tex – motivation and background
-•theory_sections.tex – Keldysh → Lévy derivation
-•discriminants_table.tex – observable discriminants
-•scattering_formulas.tex – representative scattering models
-•spatial_coherence.tex – trajectory coherence effects
-•inference_protocol.tex – inference guide
-•refs.bib – references
-•figures/ – TikZ diagrams or generated plots
+### Create arXiv bundle
 
-Figures
+```
+make arxiv
+```
 
-All diagrams are drawn in TikZ (em_mediation_diagram.tex,
-trajectory_coherence_diagram.tex).
-Future plots (e.g. PSDs, Allan variance curves) should go into /figures.
+---
 
-Versioning
-•v0.1 – theory draft only
-•v0.2 – added experimental sections
-•v1.0 – polished for circulation / arXiv
+## ⚙️ Continuous Integration
+
+Each push or PR to main triggers GitHub Actions to compile the manuscript
+and attach the resulting PDF as an artifact.
+Status badge will appear here once merged:
+
+![Build PDF](https://github.com/uwarring82/From-Keldysh-to-Levy-Unified-EM-Noise-Framework-for-Trapped-Ions/actions/workflows/latex.yml/badge.svg)
+
+---
+
+## 🧭 Guardian Tier
+
+This repository follows the Guardian Integrity Model:
+1. Negative controls (null channels)
+2. Statistical rigor (power & identifiability)
+3. Immutable archival (artifact hashes)
+4. Cross-validation (alternate estimators)
+
+All validation logic is documented in
+`sections/09_uncertainties_validation.tex`.
+
+---
+
+## 📄 License
+
+MIT License – see `LICENSE`.

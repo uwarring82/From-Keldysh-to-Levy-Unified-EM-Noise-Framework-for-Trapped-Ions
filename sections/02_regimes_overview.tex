@@ -1,0 +1,9 @@
+\section{Noise Regimes Overview}
+The trapped-ion environment exhibits a continuum of noise processes ranging from dense technical fields to sparse collisional events.
+For practical modeling we categorize regimes by the compound-Poisson event rate $\lambda$ relative to the experimental interrogation time $\tau$:
+\begin{itemize}
+  \item \textbf{Diffusive limit ($\lambda\tau \gg 1$):} Many small kicks merge into Gaussian diffusion with spectral density $S_F(\omega)$.
+  \item \textbf{Intermediate ($\lambda\tau \sim 1$):} Both diffusion and discrete jumps appear in time traces; higher-order cumulants reveal jump statistics.
+  \item \textbf{Sparse ($\lambda\tau \ll 1$):} Individual events are resolvable and obey Poisson statistics with waiting-time PDF $p(t) = \lambda e^{-\lambda t}$.
+\end{itemize}
+The same classification applies to spatial coherence: when the scatterer transit length $v\tau_{\rm coll}$ is small compared to trap dimensions, the point-impulse approximation holds; otherwise trajectory-resolved modeling (Sec.~\ref{sec:spatial-coherence}) is required.

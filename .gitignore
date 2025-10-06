@@ -1,25 +1,11 @@
-# LaTeX build files
 *.aux
 *.bbl
 *.blg
-*.brf
+*.log
+*.out
+*.pdf
+*.toc
 *.fls
 *.fdb_latexmk
-*.log
-*.nav
-*.out
-*.snm
 *.synctex.gz
-*.toc
-*.vrb
-*.xdv
-*.lof
-*.lot
-
-# minted
-_minted*
-*.pyg
-
-# OS-specific
-.DS_Store
-Thumbs.db
+arxiv/
