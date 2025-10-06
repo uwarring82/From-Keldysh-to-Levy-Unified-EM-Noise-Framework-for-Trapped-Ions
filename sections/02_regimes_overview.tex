@@ -88,14 +88,32 @@ electric field at the ion.
       = 2\!\int_{0}^{\infty}\! S_{\delta\omega}(\Omega)
         \!\left(\frac{\sin(\Omega t/2)}{\Omega/2}\right)^{2}\! d\Omega .
   \]
-  For a harmonic trap potential $U\!\propto\!x^{2}$, stray-field
-  fluctuations $\delta E(t)$ shift the trap frequency as
-  $\delta\omega(t)\!\propto\!\delta E(t)/x_{0}$,
-  so the spectrum $S_{\delta\omega}(\Omega)$ traces the
-  low-frequency limit of the electric-field noise $S_{E}(\Omega)$.
+  In realistic traps, however, the potential includes higher-order terms
+  beyond the harmonic approximation,
+  \[
+    U(x) = \tfrac{1}{2}m\omega_t^2x^2 + \beta x^3 + \gamma x^4 + \dots .
+  \]
+  While the master equation derived in Sec.~\ref{sec:theory_foundations}
+  assumes harmonic confinement and linear coupling, anharmonic corrections
+  to dephasing rates can be incorporated perturbatively when
+  $|\beta|x_0 \ll m\omega_t^2$ and $|\gamma|x_0^2 \ll m\omega_t^2$.
+  In this weakly anharmonic regime, small shifts of the equilibrium position
+  caused by $\delta E(t)$ change the local curvature experienced by the ion
+  and thus the instantaneous secular frequency.
+  For cubic terms the frequency shift scales linearly with displacement,
+  $\delta\omega(t) \propto \beta\,\delta x(t)$,
+  whereas quartic terms contribute quadratically,
+  $\delta\omega(t) \propto \gamma\,(\delta x(t))^{2}$.
+  These position-dependent curvature changes can substantially enhance
+  motional dephasing even when the field noise itself is weak.
+  True frequency noise also arises from electric-field gradients or
+  parametric variations of the RF or control voltages that modulate the
+  confining curvature.  In such cases the spectrum
+  $S_{\delta\omega}(\Omega)$ is directly linked to the low-frequency
+  component of the field-gradient or control-voltage noise spectrum.
   In the Markov limit $S_{\delta\omega}(0)$ defines an exponential
-  dephasing time~$T_{\phi}$, while quasi-static noise produces Gaussian
-  decay in time.
+  dephasing time~$T_{\phi}$, while quasi-static variations produce Gaussian
+  temporal decay.
 \end{itemize}
 
 \noindent\textbf{Unified impulse picture.}
