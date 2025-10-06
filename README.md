@@ -85,6 +85,19 @@ All validation logic is documented in
 
 ---
 
+## 📝 Terminology Policy
+
+We use \emph{motional decoherence} as the umbrella term for any process that
+reduces the purity of an ion’s motional state, encompassing both heating
+(energy exchange driven by near-resonant force noise) and dephasing (phase
+diffusion from slow potential variations). The explicit terms “heating” and
+“dephasing” are retained when discussing spectral origins (e.g.\
+$S_E(\omega_t)$ vs.\ low-frequency $S_{\delta\omega}$ or $S_E(0)$), the
+structure of the master-equation generators ($\mathcal{D}_G$ vs.\
+$\mathcal{J}_P$), or discriminants that isolate a single channel.
+
+---
+
 ## 📄 License
 
 MIT License – see `LICENSE`.
