@@ -79,7 +79,7 @@ Three regimes emerge naturally:
   Both terms in Eq.~\eqref{eq:levy-box} contribute comparably;
   non-Gaussian cumulants measurable ($\kappa_3/\kappa_2^{3/2} \sim 0.3{-}1$);
   Allan variance shows rollover near $\tau \sim 1/\lambda$
-  (Table~\ref{tab:discriminants}, Sec.~\ref{sec:discriminants-table}).
+  (Table~\ref{tab:discriminants}, Sec.~\ref{sec:discriminants_summary}).
 \item \textbf{Poisson limit} ($\lambda \tau \ll 1$, large $\langle(\Delta p)^2\rangle$):
   Discrete, resolvable jumps dominate;
   waiting-time statistics exponential;
@@ -95,6 +95,7 @@ Experimentally, jumps are resolved in motional phonon number $n$.
 Momentum transfer $\Delta p$ maps to phonon transitions via
 \begin{equation}
 \nu(\Delta n) = \int d(\Delta p)\,\nu(\Delta p)\,\sum_{n'} P_{n\to n'}(\Delta p)\, \delta(\Delta n-(n'-n)),
+\label{eq:nu_to_deltan}
 \end{equation}
 with $P_{n\to n'}(\Delta p)=|\langle n'|e^{-\mathrm{i}\Delta p x/\hbar}|n\rangle|^2$.
 This connects scattering cross-sections $d\sigma/d\Omega$ to measurable $\nu(\Delta n)$ (see Sec.~\ref{sec:scattering-models}).
@@ -111,3 +112,18 @@ In this regime the second moment diverges and the central-limit theorem no longe
 Such processes may arise from rare large-impulse events—e.g. Coulomb scattering on charged dust grains or micro-discharge spikes.
 Their generator replaces the finite-variance term in Eq.~(7) by the fractional Laplacian $-D_\alpha(-\partial_x^2)^{\alpha/2}$.
 A full quantitative treatment is left for future work.
+
+The heavy-tailed form $\nu(\Delta p)\!\propto\!|\Delta p|^{-1-\alpha}$ with
+$0<\alpha<2$ implies a corresponding power-law distribution of phonon jumps
+via Eq.~\eqref{eq:nu_to_deltan},
+$P(\Delta n)\!\propto\!|\Delta n|^{-1-\alpha}$.
+Because the variance of $\nu(\Delta p)$ diverges for $\alpha<2$, the
+central-limit theorem no longer applies and the resulting motion follows a
+fractional diffusion process.
+In the time domain, the mean-square displacement scales anomalously as
+$\langle(\Delta x)^2\rangle\!\propto\!t^{2/\alpha}$, producing an Allan
+variance with slope $\,\sigma^2_A(\tau)\!\propto\!\tau^{-(2/\alpha-1)}$.
+This anomalous exponent yields the non-integer slopes and long tails listed
+for heavy-tailed L\'evy processes in Table~\ref{tab:discriminants}.
+A detailed quantitative treatment of fractional diffusion dynamics will be
+presented in future work.
