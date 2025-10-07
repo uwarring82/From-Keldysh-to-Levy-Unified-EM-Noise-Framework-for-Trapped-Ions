@@ -43,16 +43,8 @@ A Guide for Noise Characterization Experiments}
 \begin{document}
 \maketitle
 
-latex\begin{abstract}
-Trapped-ion experiments measure motional decoherence from multiple sources—electronic noise, patch potentials, background gas collisions, and other disturbances. 
-Currently, different mechanisms are analyzed using different methods, and it is often unclear which measurements will identify which sources.
-We suggest that all electromagnetically coupled noise falls into just three categories based on how often disturbances occur: continuous fluctuations, occasional kicks, or rare large impacts.
-Each category produces distinctive experimental signatures and requires different measurement strategies.
-Continuous noise requires spectral methods, occasional kicks require time-domain statistics revealing non-Gaussian signatures, and rare impacts require extended correlation measurements.
-We provide a decision table mapping noise characteristics to optimal measurements, connect observable statistics to underlying physical parameters (scattering cross-sections, trap geometry, gas properties), and give inference protocols for mixed scenarios where multiple mechanisms contribute simultaneously.
-This classification is exhaustive: any electromagnetically coupled disturbance must fall into one of these three categories.
-We develop the framework using field noise and gas collisions as worked examples, but the approach applies equally to patch-potential fluctuations, charging events, or other sources.
-The result is a practical guide for designing noise characterization experiments and identifying dominant decoherence mechanisms in trapped-ion quantum computers and precision measurement devices.
+\begin{abstract}
+Trapped-ion experiments measure motional decoherence from multiple sources—electronic noise, patch potentials, background gas collisions, and other disturbances. Currently, different mechanisms are analyzed using different methods, and it is often unclear which measurements identify which sources. We show that all electromagnetically coupled noise falls into three categories based on event statistics: continuous fluctuations (Gaussian diffusion), occasional kicks (compound-Poisson jumps), or rare large impacts (Lévy flights). Each category produces distinctive experimental signatures requiring different measurement strategies: spectral methods for continuous noise, higher-order cumulants for occasional kicks, and waiting-time distributions for rare impacts. We provide a decision table mapping noise characteristics to optimal measurements, connect observable statistics to underlying physical parameters (scattering cross-sections, trap geometry, gas properties), and give inference protocols for mixed scenarios. The classification is exhaustive—any electromagnetically coupled disturbance must fall into one of these three categories—and we develop it using field noise and gas collisions as worked examples. The result is a practical guide for designing noise characterization experiments and identifying dominant decoherence mechanisms in trapped-ion quantum computers and precision measurement devices.
 \end{abstract}
 
 %------------------- Section Includes --------------
@@ -60,8 +52,7 @@ The result is a practical guide for designing noise characterization experiments
 \input{sections/02_regimes_overview}
 \input{sections/03_theory_foundations}
 \input{sections/04_scattering_models}
-\input{sections/05_em_mediation}
-\input{sections/06_model_assumptions}
+\input{sections/05_model_assumptions}
 \input{sections/06_spatial_temporal_coherence}
 \input{sections/07_inference_protocol}
 \input{sections/08_discriminants_table}

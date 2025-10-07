@@ -21,14 +21,35 @@ Here $\mathbf{G}$, the dyadic representation of $G$, satisfies the Helmholtz equ
 \end{equation}
 The permittivity $\varepsilon(\mathbf{r},\omega)$ encodes electrode/dielectric response; in practice $G$ is computed numerically for trap geometry.
 
-\subsection{Keldysh Formalism}
-The ion+EM+bath system is described by a Keldysh action~\cite{Kamenev2011}, doubling fields on forward/backward contours.
-Integrating out EM modes yields an effective action for the ion with force-force correlator
+\subsection{Electromagnetic Mediation Pathways}
+Electromagnetic interactions mediate every noise source to the trapped ion.
+Starting from stochastic current sources $\mathbf{J}(\mathbf{r},t)$, the electric field at the ion position is filtered by the dyadic Green tensor $\mathbf{G}(\mathbf{r}_0,\mathbf{r};\omega)$:
 \begin{equation}
-S_F(\omega) = q^2 \int d^3r d^3r'\, G_{x\alpha}(\mathbf{r}_0,\mathbf{r};\omega)\, S_{JJ}^{\alpha\beta}(\mathbf{r},\mathbf{r}';\omega)\, G^*_{x\beta}(\mathbf{r}_0,\mathbf{r}';\omega).
-\label{eq:SF}
+\mathbf{E}(\mathbf{r}_0,\omega) = \mathrm{i}\mu_0\omega \int d^3 r\, \mathbf{G}(\mathbf{r}_0,\mathbf{r};\omega) \mathbf{J}(\mathbf{r},\omega).
 \end{equation}
-\textit{Key result:} all environmental noise enters via $S_F(\omega)$, the current spectrum $S_{JJ}$ filtered by trap response $|G(\omega)|^2$.
+Regardless of the microscopic origin of $\mathbf{J}$, the force spectrum $S_F(\omega)$ entering the master equation is
+\begin{equation}
+S_F(\omega) = q^2 \int d^3 r d^3 r'\, G_{x\alpha}(\mathbf{r}_0,\mathbf{r};\omega) S_{JJ}^{\alpha\beta}(\mathbf{r},\mathbf{r}';\omega) G^{*}_{x\beta}(\mathbf{r}_0,\mathbf{r}';\omega).
+\end{equation}
+
+\paragraph{Practical modeling.}
+Trap geometries are encoded via $\mathbf{G}$, typically computed with boundary-element or finite-element solvers.
+Once tabulated, $\mathbf{G}$ enables rapid evaluation of candidate noise sources:
+\begin{itemize}
+  \item \textbf{Technical fields:} Johnson noise or control electrode pickup yields Gaussian $S_{JJ}$.
+  \item \textbf{Gas collisions:} Charged or neutral scatterers contribute impulses parameterized by cross-sections (Sec.~\ref{sec:scattering-models}).
+  \item \textbf{Surface dipoles:} Patch potentials manifest as correlated dipole moments with colored spectra.
+\end{itemize}
+
+\paragraph{Connection to figures.}
+Figure~\ref{fig:em_mediation} visualizes the mediation network, while spatial coherence effects for extended trajectories are shown in Fig.~\ref{fig:trajectory_coherence}.
+
+\subsection{Keldysh Action and Force-Force Correlator}
+The ion+EM+bath system follows a Keldysh action doubling fields on forward/backward contours [13]. Integrating out electromagnetic modes yields an effective action for the ion with force-force correlator
+\begin{equation}
+S_F(\omega) = q^2 \int d^3r d^3r' G_{x\alpha}(\mathbf{r}_0, \mathbf{r}; \omega) S^{\alpha\beta}_{JJ}(\mathbf{r}, \mathbf{r}'; \omega) G^*_{x\beta}(\mathbf{r}_0, \mathbf{r}'; \omega).
+\end{equation}
+\textbf{Key result}: All environmental noise enters via $S_F(\omega)$, the current spectrum $S_{JJ}$ filtered by trap response $|G(\omega)|^2$. Distinct source statistics (Gaussian vs Poisson) produce distinct dynamics, as detailed below.
 
 \subsection{Gaussian Bath $\to$ Diffusion}
 For dense, weakly coupled baths, $\mathbf{J}$ is Gaussian with correlations $S_{JJ}$.

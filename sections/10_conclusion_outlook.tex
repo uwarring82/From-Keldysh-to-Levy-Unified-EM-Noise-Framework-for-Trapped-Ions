@@ -4,37 +4,7 @@
 \section{Conclusions and Outlook}
 \label{sec:conclusion}
 
-We have presented a first-principles theoretical framework that unifies
-two traditionally distinct regimes of ion heating---continuous Gaussian diffusion
-and discrete Poissonian jumps---within a single Lévy–Khintchine master equation
-derived from the Keldysh formalism.
-This formulation connects microscopic current fluctuations in the environment
-to experimentally measurable motional heating rates through the trap's
-electromagnetic Green tensor.
-The resulting framework provides a transparent hierarchy:
-source statistics determine the form of the noise generator,
-while the electromagnetic Green tensor mediates how those sources couple to the ion.
-This approach clarifies why different physical processes---
-technical Johnson noise, surface charge fluctuations, or residual-gas collisions---
-produce distinct spectral and statistical signatures.
-The model's applicability is limited by the assumptions summarized in
-Sec.~\ref{sec:model_assumptions}.
-Within that domain, it provides a rigorous and extensible foundation
-for analyzing noise in trapped-ion systems used for quantum information
-and precision metrology.
-Because the same generator underlies phase- and momentum-channel noise, elements of our discriminant set may inspire analogous diagnostics in discrete-variable platforms; a full treatment lies outside our present scope.
-Future directions include:
-\begin{itemize}
-  \item Extending the formalism to correlated multi-ion motion,
-        where the electromagnetic Green tensor becomes a matrix coupling multiple spatial modes.
-  \item Developing non-Markovian generalizations to describe noise sources
-        with long temporal memory such as \(1/f\) patch fluctuations.
-  \item Incorporating heavy-tailed Lévy processes to model rare but large
-        energy-transfer events and exploring their experimental observability.
-  \item Implementing numerical validation of the inference protocol
-        proposed in Sec.~\ref{sec:inference_protocol} using synthetic data.
-\end{itemize}
+We have unified continuous Gaussian diffusion and discrete Poissonian jumps within a single Lévy–Khintchine master equation that connects microscopic current fluctuations to experimentally measurable motional decoherence through the trap's electromagnetic Green tensor. This provides a transparent hierarchy: source statistics determine the noise generator form, while the Green tensor mediates coupling. The framework clarifies why different physical processes produce distinct spectral and statistical signatures, and provides concrete experimental protocols (Table~1, Sec.~8) for discriminating mechanisms in mixed scenarios.
+The categorization is exhaustive within the approximations of Sec.~6 (harmonic confinement, Markovian bath, stationary statistics), providing a rigorous foundation for noise analysis in trapped-ion quantum information and precision metrology.
 
-Together, these steps will strengthen the framework's role as a quantitative bridge
-between microscopic theory and experimental diagnostics of noise
-in complex trapping architectures.
+\paragraph{Future directions.} Natural extensions include: (i) multi-ion correlated motion, where $\mathbf{G}$ becomes a matrix coupling spatial modes; (ii) non-Markovian generalizations for 1/f patch fluctuations with long temporal memory; (iii) quantitative heavy-tailed Lévy models for rare large-kick events; and (iv) numerical validation using synthetic data. Together, these will strengthen the framework's role as a quantitative bridge between microscopic theory and experimental diagnostics.
