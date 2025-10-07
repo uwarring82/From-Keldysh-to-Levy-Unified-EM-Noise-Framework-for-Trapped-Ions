@@ -13,16 +13,17 @@ Empirical reviews such as Brownnutt \textit{et al.}~\cite{Brownnutt2015} catalog
 \paragraph{Unifying principle: Universal mediation, distinct source statistics.}
 The framework rests on a simple observation: \emph{every} electromagnetically coupled disturbance—field noise, gas collisions, patch potentials, cosmic rays, charging events, parametric instabilities—couples to the ion through the same electromagnetic Green tensor $\mathbf{G}(\mathbf{r}_0,\mathbf{r};\omega)$ encoding trap geometry and material response. What differs is the \emph{statistical character of the environmental current sources} $\mathbf{J}(\mathbf{r},t)$ that drive the fields. This statistical character, not the coupling mechanism, determines both the temporal pattern (diffusive vs. impulsive) and the spectral content (heating vs. dephasing weight).
 
-The categorization is exhaustive. Any noise source falls into one of three universality classes based on its temporal statistics:
+The categorization is exhaustive. Any electromagnetically coupled noise source falls into one of three universality classes distinguished by temporal statistics:
+
 \begin{itemize}[leftmargin=*,nosep]
-\item \emph{Dense sources} (many weak, independent fluctuations): The Central Limit Theorem applies, yielding Gaussian force statistics and Lindblad diffusion. Heating depends on spectral weight $S_F(\omega_t)$ near the trap frequency; dephasing depends on low-frequency weight $S_{\delta\omega}(\Omega \to 0)$. These channels are independent and additive.
+\item \textbf{Dense sources} (many weak, independent fluctuations): The Central Limit Theorem applies, producing Gaussian force statistics and diffusive heating. Heating and dephasing arise from different spectral regions and can be analyzed independently.
 
-\item \emph{Sparse impulses} (rare, independent events): Poisson arrival statistics govern discrete momentum kicks $\Delta p$ drawn from a scattering-determined distribution $\nu(\Delta p)$. Each kick simultaneously induces energy change and phase shift through $U_{\Delta p} = \exp[-i \Delta p \, x/\hbar]$. The dynamics follow compound-Poisson evolution with observable jumps, non-Gaussian cumulants, and exponential waiting times. Heating and dephasing are coupled, not separable.
+\item \textbf{Sparse impulses} (rare, independent events): Poisson arrival statistics govern discrete momentum kicks. Each kick simultaneously changes energy and phase through the same displacement operator, coupling heating and dephasing. Observable signatures include non-Gaussian statistics and exponential waiting times between events.
 
-\item \emph{Heavy-tailed events} (rare large kicks with power-law tails): When $\nu(\Delta p) \propto |\Delta p|^{-1-\alpha}$ with $\alpha < 2$, the variance diverges and motion follows L\'evy-stable anomalous diffusion with non-integer Allan variance exponents and long-lived coherent transients.
+\item \textbf{Heavy-tailed events} (rare large kicks with power-law tails): Divergent variance produces anomalous diffusion with non-standard scaling laws. Such processes may arise from Coulomb scattering on charged dust or cosmic ray impacts.
 \end{itemize}
 
-As illustrated in Fig.~\ref{fig:em_mediation}, the Green tensor $\mathbf{G}$ mediates universally; the categorization depends entirely on $\mathbf{J}$ statistics. We develop the framework using field noise (dense, Gaussian) and gas collisions (sparse, Poisson) as paradigmatic examples, but the classification encompasses any electromagnetically coupled mechanism.
+As illustrated in Fig.~\ref{fig:em_mediation}, the Green tensor $\mathbf{G}$ mediates coupling universally; only the current statistics $\mathbf{J}$ differ. We develop the framework using field noise (dense, Gaussian) and gas collisions (sparse, Poisson) as paradigmatic examples, but the classification encompasses any electromagnetically coupled mechanism.
 
 \begin{figure}[t]
   \centering
@@ -34,7 +35,7 @@ As illustrated in Fig.~\ref{fig:em_mediation}, the Green tensor $\mathbf{G}$ med
 \end{figure}
 
 \paragraph{Theoretical foundation.}
-The three categories arise naturally from established open-quantum-systems theory. Field-induced diffusion follows from the fluctuation-dissipation relation in macroscopic QED, where $S_E(\omega)$ is determined by $\mathbf{G}$ and material response~\cite{ScheelBuhmann2008,BrownnuttRMP2015,BuhmannDispersionForcesII}. Collision-induced jumps emerge from the quantum linear Boltzmann equation~\cite{HornbergerSipe2003,VacchiniHornberger2009,OghittuNJPhys2023}. Both are special cases of the L\'evy--Khintchine decomposition for translation-covariant quantum Markov semigroups~\cite{Holevo1993,VacchiniJMathPhys2001}, whose sum is rigorously justified under weak coupling and Markov approximations~\cite{BreuerPetruccione2002}. 
+The three categories arise naturally from established open-quantum-systems theory. Field-induced diffusion follows from the fluctuation-dissipation relation in macroscopic QED, where $S_E(\omega)$ is determined by $\mathbf{G}$ and material response~\cite{ScheelBuhmann2008,Brownnutt2015,BuhmannDispersionForcesII}. Collision-induced jumps emerge from the quantum linear Boltzmann equation~\cite{HornbergerSipe2003,VacchiniHornberger2009,OghittuNJPhys2023}. Both are special cases of the L\'evy--Khintchine decomposition for translation-covariant quantum Markov semigroups~\cite{Holevo1993,VacchiniJMathPhys2001}, whose sum is rigorously justified under weak coupling and Markov approximations~\cite{BreuerPetruccione2002}. 
 
 Our contribution is not to re-derive these results but to synthesize them into a unified experimental framework: we connect microscopic mechanisms (scattering cross-sections, current correlations) to observable signatures of motional decoherence—including both energy and phase dynamics—through explicit, measurable discriminants.
 
@@ -52,7 +53,7 @@ For temporal statistics, $\lambda\tau$ determines measurement strategy:
 
 Crucially, $\lambda\tau$ characterizes \emph{event statistics}, not spectral content. A Gaussian noise source with 1/f spectrum ($\lambda\tau \gg 1$) can produce strong dephasing but weak heating; conversely, a Poisson collision process ($\lambda\tau \ll 1$) with large momentum transfer produces primarily heating. The framework accounts for both aspects independently.
 
-Table~\ref{tab:discriminants} provides the complete decision map with required shot counts and statistical power estimates. Section~\ref{sec:inference_protocol} details stroboscopic measurement protocols, while Sec.~\ref{sec:scattering_models} connects specific scattering mechanisms (Langevin, hard-sphere, charge exchange) to predicted observables.
+Table~\ref{tab:discriminants} provides the complete decision map with required shot counts and statistical power estimates. Section~\ref{sec:inference_protocol} details stroboscopic measurement protocols, while Sec.~\ref{sec:scattering-models} connects specific scattering mechanisms (Langevin, hard-sphere, charge exchange) to predicted observables.
 
 \paragraph{Scope and limitations.}
 The framework assumes: (i)~harmonic confinement with linear coupling $H_{\text{int}} = -qxE_x$, valid when ion motion remains small compared to field-variation scales; (ii)~Markovian bath dynamics, requiring environmental correlation times short compared to trap period $\omega_t^{-1}$; (iii)~stationary noise statistics. For weakly anharmonic traps, position-dependent frequency shifts $\delta\omega(t) \propto \beta \delta x(t)$ or $\gamma (\delta x(t))^2$ can enhance dephasing even when field noise itself is weak. Extensions to non-Markovian memory kernels and multi-ion correlated dynamics are discussed but not fully developed. Within these approximations, the categorization is exhaustive for single-ion motional decoherence.
