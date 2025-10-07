@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unified-noise"
+version = "0.1.0"
+description = "Master-equation centered backends for the unified EM-noise framework"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+]
+
+[tool.setuptools.packages.find]
+include = ["unified_noise*"]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "pytest-cov>=4.0",
+  "ruff>=0.4.0",
+  "black>=24.0",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+select = ["E","F","W","I"]
