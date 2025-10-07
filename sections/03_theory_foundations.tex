@@ -60,6 +60,15 @@ The full ion master equation is thus
 \end{equation}
 a Lévy–Khintchine generator: Gaussian diffusion $\mathcal{D}_G$ plus compound-Poisson jumps $\mathcal{J}_P$.
 
+\subsection{Universal L\'evy--Khintchine Structure}
+\label{subsec:universal-LK}
+The master equation in Eq.~\eqref{eq:levy-box} realizes the general L\'evy--Khintchine decomposition for translation-covariant quantum Markov semigroups, as established in the structural theorems of Holevo and Vacchini~\cite{Holevo1993,VacchiniJMathPhys2001} and reviewed in Ref.~\cite{BreuerPetruccione2002}.
+In brief, any linear system--environment coupling $H_{\text{int}}=\hat{A}\otimes\hat{B}$ splits uniquely into a Gaussian (diffusive) contribution governed by second moments of the bath operators and a jump (Poissonian) contribution determined by the associated L\'evy measure.
+This decomposition does not assume a particular system Hilbert space: the same generator governs discrete variables (e.g.~qubit dephasing with $\hat{A}=\sigma_z$) and continuous variables (e.g.~motional coupling with $\hat{A}=\hat{x}$), as long as the dynamics remain translation covariant.
+It also accommodates mixtures of channels, where correlated baths produce simultaneous diffusion and jumps, and provides the canonical starting point for process-agnostic noise classification.
+\emph{Scope of this work:} we specialize to trapped-ion motion ($\hat{A}=\hat{x}$) under electromagnetic noise and develop explicit connections to experimental observables (regime classifier $\lambda\tau$, discriminants, and inference protocols).
+A comprehensive treatment of discrete-variable platforms is beyond our scope; readers seeking qubit-focused perspectives are referred to Refs.~\cite{Paladino2014,Cywinski2008}.
+
 \paragraph{Crossover regimes and dominance criteria.}
 The relative importance of diffusion versus jumps is set by dimensionless ratios:
 \begin{equation}
