@@ -142,3 +142,90 @@ The parameter $\lambda\tau$ organizes temporal statistics
 \emph{which} parts of the spectrum carry power:
 near~$\omega_t$ for heating and near~0 for dephasing.
 Either contribution can dominate in any regime.
+
+\subsection{Experimental Context: From Single Shots to Statistical Inference}
+
+To make the regime classification concrete, we first establish the basic experimental workflow familiar to any trapped-ion student.
+
+\paragraph{Single experimental shot.}
+A standard motional-state measurement consists of:
+\begin{enumerate}[nosep]
+\item \textbf{Initialize}: Doppler cool, then resolved-sideband cool to near ground state ($n \lesssim 0.1$)
+\item \textbf{Wait}: Idle for duration $\tau$ while environmental noise acts on the ion
+\item \textbf{Readout}: Measure phonon number $n$ via sideband thermometry or fluorescence.
+\end{enumerate}
+The outcome is a single integer $n$ representing the motional quantum number after noise exposure. Typical wait times range from $\tau \sim 10\,\mu$s (studying fast technical noise) to $\tau \sim 100\,$ms (studying slow drifts or rare collision events). The readout itself takes $\sim 1$~ms but does not contribute to the noise exposure.
+
+\paragraph{Building statistics through repetition.}
+A single shot provides minimal information. To characterize the noise, the sequence is repeated $N$ times (typically $N = 10^2$ to $10^5$), yielding a histogram $\{n_i\}_{i=1}^N$ from which we extract:
+\begin{itemize}[nosep]
+\item Mean heating: $\langle n \rangle = N^{-1} \sum_i n_i$
+\item Variance: $\sigma^2_n = \langle n^2 \rangle - \langle n \rangle^2$
+\item Higher cumulants: skewness $\kappa_3$, kurtosis $\kappa_4$
+\item Full distribution: $P(n) = (\text{number of shots with outcome } n)/N$
+\end{itemize}
+For Gaussian noise, $P(n)$ is approximately Poisson (or thermal) and fully characterized by its mean. For non-Gaussian noise, $\kappa_3 \neq 0$ and the distribution develops tails or structure invisible to $\langle n \rangle$ alone.
+
+\paragraph{Time-series analysis (optional).}
+If shot outcomes are recorded sequentially as $\{n(t_1), n(t_2), \ldots\}$ with time stamps, one can additionally compute:
+\begin{itemize}[nosep]
+\item Waiting times between jumps: $\Delta t_i = t_{i+1} - t_i$ when $|n_{i+1} - n_i| > \text{threshold}$
+\item Allan variance: $\sigma^2_A(\tau) = \langle [n(t+\tau) - n(t)]^2 \rangle / 2$ as a function of averaging time
+\item Autocorrelation: $C(\tau) = \langle n(t) n(t+\tau) \rangle - \langle n \rangle^2$
+\end{itemize}
+Time-series methods are particularly powerful in the intermediate and sparse regimes where discrete events produce resolvable structure.
+
+\paragraph{Connecting to the regime parameter $\lambda\tau$.}
+The dimensionless product $\lambda\tau$ counts the \emph{typical number of noise events occurring during a single shot of duration $\tau$}:
+\begin{itemize}
+\item $\lambda$ = characteristic rate of environmental disturbances (e.g., gas collision rate, charging event rate, or effective correlation rate $1/\tau_c$ for continuous field noise)
+\item $\tau$ = your chosen wait duration in the pulse sequence
+\item $\lambda\tau$ = expected number of independent noise events per shot
+\end{itemize}
+
+\textbf{Physical interpretation}:
+\begin{itemize}
+\item \textbf{$\lambda\tau \gg 1$} (diffusive regime): Each shot accumulates many noise events—your histogram $P(n)$ looks smooth, approximately Gaussian or thermal. Shot-to-shot fluctuations follow central-limit statistics. \emph{Example}: Technical field noise with $\tau_c \sim 1\,\mu$s and $\tau = 1\,$ms gives $\lambda\tau \sim 10^3$.
+
+\item \textbf{$\lambda\tau \sim 1$} (intermediate regime): Each shot experiences zero, one, or a few events. Your histogram $P(n)$ develops visible skewness and excess kurtosis. Some shots heat significantly, others barely at all. Time-series show clustering. \emph{Example}: Gas collisions at $P = 10^{-10}\,$mbar with $\tau = 10\,$ms gives $\lambda\tau \sim 1{-}5$ depending on species and trap size.
+
+\item \textbf{$\lambda\tau \ll 1$} (sparse regime): Most shots show $n \approx 0$ (no event), but occasionally a shot exhibits a large jump ($\Delta n \sim 5{-}20$). Waiting times between jumps are exponentially distributed. \emph{Example}: Cosmic ray impacts or rare charging events with $\lambda \sim 0.01\,$Hz and $\tau = 10\,$ms gives $\lambda\tau \sim 10^{-4}$.
+\end{itemize}
+
+%\begin{figure}[t]
+%  \centering
+%  \includegraphics[width=\textwidth]{figures/experimental_workflow}
+%  \caption{\textbf{From single shots to regime classification.}
+%  \textbf{Top}: Standard pulse sequence—cool, wait duration $\tau$, readout phonon number $n$.
+%  \textbf{Middle}: Example histograms $P(n)$ for three regimes after $N=10^4$ repetitions with same mean $\langle n \rangle = 5$ but different statistics.
+%  \textbf{Left} ($\lambda\tau \gg 1$): Smooth Gaussian-like distribution from many small kicks.
+%  \textbf{Center} ($\lambda\tau \sim 1$): Skewed distribution with visible higher cumulants.
+%  \textbf{Right} ($\lambda\tau \ll 1$): Bimodal with peak at $n=0$ (no event) and exponential tail (rare jumps).
+%  \textbf{Bottom}: Time traces $n(t)$ showing diffusive vs. jump-like evolution.}
+%  \label{fig:experimental_workflow}
+%\end{figure}
+
+Figure~\ref{fig:experimental_workflow} illustrates how the same experimental sequence yields qualitatively different data depending on the underlying noise statistics. The regime parameter $\lambda\tau$ provides a simple heuristic: estimate the noise event rate (from pressure gauges, technical noise measurements, or prior studies), multiply by your planned wait time, and the result tells you which observables to focus on (Table~\ref{tab:discriminants}).
+
+\paragraph{Experimental knobs for tuning $\lambda\tau$.}
+A key advantage of this framework is that $\lambda\tau$ can be tuned experimentally:
+\begin{itemize}[nosep]
+\item \textbf{Change $\tau$}: Use shorter wait times to probe the diffusive regime of a collision-dominated system, or longer wait times to accumulate more events for better statistics
+\item \textbf{Change $\lambda$}: Vary background pressure (for gas collisions), reduce technical noise (for field fluctuations), or operate at different temperatures
+\item \textbf{Scan both}: Systematic variation of $\tau$ at fixed $\lambda$ produces the Allan variance $\sigma^2_A(\tau)$, whose functional form distinguishes regimes (Sec.~\ref{sec:discriminants})
+\end{itemize}
+
+With this experimental context established, we now turn to the microscopic theory that predicts which value of $\lambda$ and which functional form of $P(n)$ to expect from different noise sources.
+
+\begin{tcolorbox}[title=Experimental Terminology]
+\begin{description}[leftmargin=3em,style=nextline,nosep]
+\item[Shot] One complete cycle: cool $\to$ wait $\tau$ $\to$ readout $\to$ reset. Yields one phonon number $n$.
+\item[Wait time $\tau$] Duration during which environmental noise acts on the ion (controlled parameter).
+\item[Repetitions $N$] Number of independent shots performed to build histogram $P(n)$.
+\item[Heating rate] Mean phonon gain per unit time: $\dot{n} = \langle n \rangle / \tau$ (units: quanta/s).
+\item[Event rate $\lambda$] Characteristic frequency of environmental disturbances (Hz). For collisions: $\lambda = n_g \sigma v$. For continuous noise: $\lambda \sim 1/\tau_c$.
+\item[Regime parameter] $\lambda\tau$ = expected number of noise events per shot (dimensionless).
+\item[Stroboscopic measurement] Repeated fixed-$\tau$ shots; contrasts with continuous monitoring.
+\item[Allan variance] Two-sample variance $\sigma^2_A(\tau) = \langle [n(t{+}\tau) - n(t)]^2 \rangle/2$ vs. averaging time.
+\end{description}
+\end{tcolorbox}
