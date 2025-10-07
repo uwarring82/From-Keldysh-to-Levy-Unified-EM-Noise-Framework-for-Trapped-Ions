@@ -7,6 +7,33 @@ However, a complementary mechanism arises from discrete collision events: backgr
 These cannot be captured by Gaussian noise models alone.
 Instead, they produce intermittent heating signatures that are invisible to $S_E(\omega)$ alone.
 
+\paragraph{Positioning (complementary to empirical reviews).}
+Empirical surveys such as Brownnutt \emph{et al.} (2015)~\cite{Brownnutt2015} map the experimental
+landscape via field spectra $S_E(\omega)$ and heating rates; they are descriptive
+and data--driven. Our aim here is \emph{first principles categorization}:
+to explain why distinct microscopic mechanisms \emph{must} yield distinct
+\emph{statistical} signatures in ion heating, and to identify the observables
+that separate them most powerfully.
+
+\paragraph{Unifying idea.}
+All mechanisms couple through the same electromagnetic Green tensor
+$G(\mathbf r_0,\mathbf r;\omega)$ that encodes trap geometry and materials.
+What differs is the \emph{statistics of the source currents} $J(\mathbf r,t)$.
+Dense, weakly coupled sources $\Rightarrow$ Gaussian statistics (CLT) and
+Lindblad diffusion; rare, independent impulses $\Rightarrow$ compound--Poisson
+jumps with rate $\lambda$ and jump distribution set by scattering physics;
+heavy--tailed outliers give L\'evy--stable behavior. The mediation by $G$ is
+universal; the categorization rests on the statistics of $J$.
+
+\paragraph{Predictive consequence for experiments.}
+A single dimensionless control parameter, $\lambda\tau$ (event rate $\lambda$,
+interrogation time $\tau$), selects the informative observables:
+$\lambda\tau\gg1$ favors spectral methods; $\lambda\tau\sim1$ calls for higher
+cumulants and Allan variance; $\lambda\tau\ll1$ exposes waiting--time statistics
+and jump-size histograms. Table~\ref{tab:discriminants} summarizes this
+\emph{decision map}; Sec.~\ref{sec:inference_protocol} provides a stroboscopic
+protocol sized for statistical power.
+
 Both motional heating from electromagnetic field fluctuations and
 dephasing from collisional perturbations can be derived within the general
 framework of translation-covariant open-system dynamics.
