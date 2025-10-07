@@ -19,6 +19,7 @@
 \usepackage{tikz}
 \usetikzlibrary{patterns,decorations.pathmorphing,arrows.meta,positioning,calc}
 \usepackage{hyperref}
+\usepackage{enumitem} % for [leftmargin=*,nosep] in itemize/enumerate
 
 \hypersetup{
   colorlinks = true,
@@ -40,14 +41,16 @@
 \begin{document}
 \maketitle
 
-\begin{abstract}
-We present a framework connecting microscopic descriptions of electromagnetic noise
-from the Keldysh formalism to L\'evy-statistics-based macroscopic noise models.
-The goal is to provide a unified language for analyzing fluctuating fields
-that affect trapped-ion motion and internal coherence,
-bridging theory, scattering models, and experimental inference through a
-common description of motional decoherence encompassing both heating and
-dephasing channels.
+latex\begin{abstract}
+Trapped-ion experiments measure motional decoherence from multiple sources—electronic noise, patch potentials, background gas collisions, and other disturbances. 
+Currently, different mechanisms are analyzed using different methods, and it is often unclear which measurements will identify which sources.
+We suggest that all electromagnetically coupled noise falls into just three categories based on how often disturbances occur: continuous fluctuations, occasional kicks, or rare large impacts.
+Each category produces distinctive experimental signatures and requires different measurement strategies.
+Continuous noise requires spectral methods, occasional kicks require time-domain statistics revealing non-Gaussian signatures, and rare impacts require extended correlation measurements.
+We provide a decision table mapping noise characteristics to optimal measurements, connect observable statistics to underlying physical parameters (scattering cross-sections, trap geometry, gas properties), and give inference protocols for mixed scenarios where multiple mechanisms contribute simultaneously.
+This classification is exhaustive: any electromagnetically coupled disturbance must fall into one of these three categories.
+We develop the framework using field noise and gas collisions as worked examples, but the approach applies equally to patch-potential fluctuations, charging events, or other sources.
+The result is a practical guide for designing noise characterization experiments and identifying dominant decoherence mechanisms in trapped-ion quantum computers and precision measurement devices.
 \end{abstract}
 
 %------------------- Section Includes --------------
