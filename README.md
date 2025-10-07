@@ -124,3 +124,14 @@ trapped-ion systems. No prior knowledge of Keldysh formalism or Lévy processes 
 ## Current Status
 
 **Draft in preparation**
+
+## Numerical Validation — Initial Aim
+
+We will implement a **master-equation–centred, modular numerical pipeline** to benchmark the unified EM-noise framework across **dense ↔ sparse** interaction regimes. Phase-1 scope:
+- **Backend 1 (ME/Wigner):** Harmonic mode with Gaussian diffusion + Poisson/Lévy momentum-kick superoperator; Krylov/FFT time-propagation.
+- **Backend 2 (Trajectories):** Gillespie-style “synthetic experiment” engine to mirror stroboscopic measurements and rare events.
+- **Backend 3 (Moments):** Low-order moment ODEs with cumulant closure for fast parameter sweeps.
+- **Outputs:** ⟨n⟩(t), \(P(n\!\mid\!\tau)\), excess kurtosis, and a regime map over \((\lambda,\alpha)\) validating diffusion, renewal, and fractional approximations.
+- **Reproducibility:** Jupyter notebooks + CI artifacts for figures and summary tables.
+
+This step establishes a numerically controlled bridge between our analytic limits (diffusive, renewal, fractional) and experiment-like observables.
