@@ -1,106 +1,126 @@
-# From Keldysh to Lévy — Unified EM Noise Framework for Trapped Ions
+# Statistical Categorization of Motional Decoherence in Trapped Ions
 
-This repository hosts the LaTeX source for our paper  
-**“From Keldysh to Lévy: A Unified Framework for Electromagnetic Noise in Trapped Ions.”**
+## Mission Statement
+
+**Problem**: Trapped-ion experiments suffer from multiple noise sources (field fluctuations, 
+gas collisions, patch potentials, charging events). Current practice analyzes each source 
+with different methods, and it's often unclear which measurements will identify which 
+mechanisms.
+
+**Solution**: We provide a first-principles categorization showing that *all* 
+electromagnetically coupled noise falls into exactly three statistical categories 
+(continuous, occasional, rare). Each category produces distinctive experimental signatures 
+and requires specific measurement strategies.
+
+**Deliverable**: A practical decision guide mapping noise characteristics → optimal 
+measurements → required shot counts → inference protocols.
 
 ---
 
-## 📘 Scope
-The manuscript develops a cross-regime description of environmental noise affecting trapped ions,
-bridging the Keldysh formalism with Lévy-type statistics.
-It unifies **theory**, **scattering models**, and **inference protocols** into a coherent framework
-for identifying noise sources and collision signatures in experiments.
+## What This Is
+
+- **An experimental design guide** for noise characterization in trapped ions
+- **A statistical categorization** connecting source physics to observable signatures  
+- **A synthesis** of established open-quantum-systems theory applied to trapped-ion diagnostics
+- **Complementary to empirical reviews** (e.g., Brownnutt 2015): explains *why* different 
+  sources produce different signatures and *which* measurements distinguish them
+
+## What This Is NOT
+
+- A derivation of open quantum systems theory from first principles
+- A general framework for all quantum systems (focus is trapped ions)
+- A comprehensive review of all trapped-ion noise literature
+- A proposal for new noise mitigation techniques (focus is characterization)
 
 - **Scope:** Practical, experiment-driven framework for trapped-ion EM noise.
   We acknowledge the universal L\'evy--Khintchine structure but do not develop general qubit/optomechanics theory here.
 
 ---
 
-## 🧠 Structure
+## Key Contributions
 
-```
-sections/
-  01_introduction.tex
-  02_regimes_overview.tex
-  03_theory_foundations.tex
-  04_scattering_models.tex
-  05_em_mediation.tex
-  06_spatial_temporal_coherence.tex
-  07_inference_protocol.tex
-  08_discriminants_table.tex
-  09_uncertainties_validation.tex
-  10_conclusion_outlook.tex
-figures/
-bib/refs.bib
-```
+1. **Exhaustive categorization**: Three statistical universality classes (Gaussian/Poisson/Lévy) 
+   based on event timing, not physical mechanism
 
-Each `.tex` file is an independent section, included by `main.tex`.
+2. **Decision parameter λτ**: Single dimensionless number (events per measurement) determines 
+   which observables are informative
 
----
+3. **Experimental discriminants** (Table 1): Observable signatures distinguishing mechanisms 
+   with required shot counts for statistical power
 
-## 🛠️ Build Instructions
+4. **Scattering models**: Explicit connection from cross-sections (Langevin, hard-sphere, 
+   charge exchange) to phonon-jump distributions
 
-### Local build
-Requires TeX Live or MiKTeX with `latexmk`.
+5. **Inference protocols**: Bayesian methods for mixed scenarios with multiple simultaneous 
+   noise sources
 
-```bash
-git clone https://github.com/uwarring82/From-Keldysh-to-Levy-Unified-EM-Noise-Framework-for-Trapped-Ions.git
-cd From-Keldysh-to-Levy-Unified-EM-Noise-Framework-for-Trapped-Ions
-make pdf
-```
-
-Output: `main.pdf`
-
-### Clean up
-
-```
-make clean
-```
-
-### Create arXiv bundle
-
-```
-make arxiv
-```
+6. **Validity boundaries**: When point-impulse approximations fail (fast scatterers, 
+   extended coherence)
 
 ---
 
-## ⚙️ Continuous Integration
+## Target Audience
 
-Each push or PR to main triggers GitHub Actions to compile the manuscript
-and attach the resulting PDF as an artifact.
-Status badge will appear here once merged:
+**Primary**: Trapped-ion experimentalists designing noise characterization protocols  
+**Secondary**: Theorists modeling decoherence in ion-trap quantum computers  
+**Tertiary**: Precision metrology groups using trapped ions
 
-![Build PDF](https://github.com/uwarring82/From-Keldysh-to-Levy-Unified-EM-Noise-Framework-for-Trapped-Ions/actions/workflows/latex.yml/badge.svg)
-
----
-
-## 🧭 Guardian Tier
-
-This repository follows the Guardian Integrity Model:
-1. Negative controls (null channels)
-2. Statistical rigor (power & identifiability)
-3. Immutable archival (artifact hashes)
-4. Cross-validation (alternate estimators)
-
-All validation logic is documented in
-`sections/09_uncertainties_validation.tex`.
+**Prerequisites**: Undergraduate quantum mechanics, basic statistics, familiarity with 
+trapped-ion systems. No prior knowledge of Keldysh formalism or Lévy processes required.
 
 ---
 
-## 📝 Terminology Policy
+## Paper Structure
 
-We use \emph{motional decoherence} as the umbrella term for any process that
-reduces the purity of an ion’s motional state, encompassing both heating
-(energy exchange driven by near-resonant force noise) and dephasing (phase
-diffusion from slow potential variations). The explicit terms “heating” and
-“dephasing” are retained when discussing spectral origins (e.g.\
-$S_E(\omega_t)$ vs.\ low-frequency $S_{\delta\omega}$ or $S_E(0)$), the
-structure of the master-equation generators ($\mathcal{D}_G$ vs.\
-$\mathcal{J}_P$), or discriminants that isolate a single channel.
+1. **Introduction**: Motivation, positioning relative to empirical literature
+2. **Regime Classifier**: λτ parameter and its experimental consequences  
+3. **Unified Master Equation**: Lévy-Khintchine structure (cited from open QS theory)
+4. **Scattering Models**: Cross-sections → observable distributions
+5. **Spatial Coherence**: Fast-scatterer corrections
+6. **Inference Protocol**: Stroboscopic measurements with power analysis
+7. **Discriminants**: Experimental decision table
+8. **Validation**: Null channels, cross-validation, reproducibility
+9. **Conclusions**: Future directions
+
+**Estimated length**: 15-20 pages (PRA/NJP format)
 
 ---
 
-## 📄 License
+## How to Use This Framework
 
-MIT License – see `LICENSE`.
+### If you're an experimentalist:
+
+1. **Identify your regime**: Estimate λ (event rate) and τ (measurement time) → compute λτ
+2. **Choose measurements**: Use Table 1 to select appropriate observables for your λτ regime
+3. **Design protocol**: Section 8 gives shot counts and pulse sequences
+4. **Fit models**: Section 4 connects your observables to physical parameters (cross-sections, 
+   gas density, trap geometry)
+5. **Validate**: Section 10 provides null-channel and cross-validation procedures
+
+### If you're a theorist:
+
+1. **Classify your noise source**: Dense/sparse/heavy-tailed based on microscopic physics
+2. **Predict observables**: Use master equation (Sec. 3) to compute signatures
+3. **Compare to experiment**: Use discriminants (Sec. 9) to test predictions
+
+---
+
+## Relation to Existing Literature
+
+- **Brownnutt et al. (2015)**: Empirical catalog of measured heating rates and spectra  
+  → *We complement this by explaining which measurements distinguish which sources*
+
+- **Keldysh/Lévy open QS theory** (Holevo, Vacchini, Breuer & Petruccione):  
+  → *We apply this established theory to trapped-ion noise characterization*
+
+- **Collisional decoherence** (Hornberger, Vacchini):  
+  → *We connect this to measurable phonon statistics in trapped ions*
+
+- **Ion-trap noise measurements** (Turchette, Labaziewicz, Oghittu et al.):  
+  → *We provide a unified framework for interpreting such measurements*
+
+---
+
+## Current Status
+
+**Draft in preparation**
