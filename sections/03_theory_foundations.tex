@@ -115,24 +115,16 @@ The experimentally accessible regime is often \emph{intermediate}, where $\lambd
 Section~\ref{sec:observable_signatures} develops observables—cumulants, waiting times, and Allan variance—that discriminate $\mathcal{D}_G$ versus $\mathcal{J}_P$ even when both are present simultaneously.
 
 \subsection{Heavy-Tailed Lévy Processes}
-Heavy-tailed Lévy flights extend the compound-Poisson picture to jump-size distributions with divergent variance,
-$\nu(\Delta p)\!\propto\! |\Delta p|^{-1-\alpha}$ for $0<\alpha<2$.
-In this regime the second moment diverges and the central-limit theorem no longer applies, producing anomalous diffusion $\langle (\Delta x)^2 \rangle \propto t^{2/\alpha}$.
-Such processes may arise from rare large-impulse events—e.g. Coulomb scattering on charged dust grains or micro-discharge spikes.
-Their generator replaces the finite-variance term in Eq.~(7) by the fractional Laplacian $-D_\alpha(-\partial_x^2)^{\alpha/2}$.
-A full quantitative treatment is left for future work.
 
-The heavy-tailed form $\nu(\Delta p)\!\propto\!|\Delta p|^{-1-\alpha}$ with
-$0<\alpha<2$ implies a corresponding power-law distribution of phonon jumps
-via Eq.~\eqref{eq:nu_to_deltan},
-$P(\Delta n)\!\propto\!|\Delta n|^{-1-\alpha}$.
-Because the variance of $\nu(\Delta p)$ diverges for $\alpha<2$, the
-central-limit theorem no longer applies and the resulting motion follows a
-fractional diffusion process.
-In the time domain, the mean-square displacement scales anomalously as
-$\langle(\Delta x)^2\rangle\!\propto\!t^{2/\alpha}$, producing an Allan
-variance with slope $\,\sigma^2_A(\tau)\!\propto\!\tau^{-(2/\alpha-1)}$.
-This anomalous exponent yields the non-integer slopes and long tails listed
-for heavy-tailed Lévy processes in Table~\ref{tab:discriminants}.
-A detailed quantitative treatment of fractional diffusion dynamics will be
-presented in future work.
+Heavy-tailed Lévy flights extend the compound-Poisson picture to jump-size distributions with divergent variance, $\nu(\Delta p) \propto |\Delta p|^{-1-\alpha}$ for $0 < \alpha < 2$. Because the second moment diverges, the central-limit theorem no longer applies and the motion follows fractional diffusion with mean-square displacement $\langle(\Delta x)^2\rangle \propto t^{2/\alpha}$. 
+
+Such processes require collision mechanisms that enhance \emph{large} momentum transfer. Candidates include:
+\begin{itemize}[nosep,leftmargin=*]
+\item \textbf{Coulomb scattering on charged dust grains:} Long-range $1/r^2$ potential produces power-law differential cross-section at large angles, unlike the forward-peaked Langevin scattering from induced dipoles.
+\item \textbf{Micro-discharge events:} Sudden electrode charging creates impulsive large-momentum kicks with broad distribution.
+\item \textbf{Cosmic ray impacts:} High-energy particles transfer momentum far exceeding thermal collisions.
+\end{itemize}
+
+Via Eq.~\eqref{eq:nu_to_deltan}, the power-law momentum distribution maps to phonon jumps: $P(\Delta n) \propto |\Delta n|^{-1-\alpha}$. The Allan variance acquires an anomalous slope $\sigma^2_A(\tau) \propto \tau^{-(2/\alpha-1)}$ with non-integer exponent, producing the long tails listed in Table~\ref{tab:discriminants}. The generator replaces the finite-variance compound-Poisson term in Eq.~\eqref{eq:jump_generator} by a fractional Laplacian $-D_\alpha(-\partial_x^2)^{\alpha/2}$.
+
+\paragraph{Experimental relevance.} Heavy-tailed Lévy processes are distinct from the \emph{near-Gaussian} behavior produced by Langevin ion-neutral collisions (Sec.~\ref{sec:langevin}), which enhance small momentum transfer and obey CLT. Heavy-tailed signatures become observable when rare large-kick mechanisms dominate: ultra-low neutral pressures where charged dust encounters outweigh thermal collisions, environments with frequent charging events, or high-radiation facilities. Experimentally distinguishing $\alpha<$2 power-law tails from Langevin fat tails requires measuring $P(\Delta n)$ over 3–4 decades (approx. $10^6$ events) to resolve the asymptotic behavior. A full quantitative treatment is left for future work.
