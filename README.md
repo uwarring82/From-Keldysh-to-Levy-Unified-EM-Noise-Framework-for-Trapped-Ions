@@ -11,6 +11,9 @@ bridging the Keldysh formalism with Lévy-type statistics.
 It unifies **theory**, **scattering models**, and **inference protocols** into a coherent framework
 for identifying noise sources and collision signatures in experiments.
 
+- **Scope:** Practical, experiment-driven framework for trapped-ion EM noise.
+  We acknowledge the universal L\'evy--Khintchine structure but do not develop general qubit/optomechanics theory here.
+
 ---
 
 ## 🧠 Structure
