@@ -15,6 +15,18 @@ The framework rests on a simple observation: \emph{every} electromagnetically co
 
 The categorization is exhaustive. Any electromagnetically coupled noise source falls into one of three universality classes distinguished by temporal statistics:
 
+\Claim[Positioning]{levy-crossover}{
+In the rare-event (flyby) regime the heating statistics deviate from Gaussian
+diffusion and exhibit a L\'evy-stable crossover that is identifiable by higher-order
+cumulants and heavy-tailed inter-event distributions.
+}
+
+\NeedsValidation[Theory \& Numerics]{
+(1) $\kappa_3/\kappa_4$ scaling vs.\ $\lambda\tau$;
+(2) tail-exponent fit stability;
+(3) robustness to finite trace length ($N$ shots).
+}
+
 \begin{itemize}[leftmargin=*,nosep]
 \item \textbf{Dense sources} (many weak, independent fluctuations): The Central Limit Theorem applies, producing Gaussian force statistics and diffusive heating. Heating and dephasing arise from different spectral regions and can be analyzed independently.
 
