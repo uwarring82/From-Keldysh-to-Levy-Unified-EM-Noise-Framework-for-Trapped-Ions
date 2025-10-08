@@ -1,0 +1,98 @@
+% === Validation / Claim tooling ==========================
+% Minimal deps (already common in papers)
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\usepackage{pifont}
+\usepackage{hyperref}
+
+% Toggle: show/hide flags (default: show)
+\newtoggle{showflags}
+\toggletrue{showflags} % set \togglefalse{showflags} for a clean camera-ready
+
+% Colors
+\definecolor{valgreen}{HTML}{217346}
+\definecolor{valamber}{HTML}{CC7A00}
+\definecolor{valred}{HTML}{B00020}
+\definecolor{valblue}{HTML}{1E88E5}
+\definecolor{lightgrayA}{HTML}{ECECEC}
+
+% Icons
+\newcommand{\cmark}{{\color{valgreen}\ding{51}}}
+\newcommand{\xmark}{{\color{valred}\ding{55}}}
+\newcommand{\qmark}{{\color{valamber}\Large\textbf{?}}}
+
+% Box styles
+\tcbset{
+  claimstyle/.style={
+    colback=lightgrayA, colframe=valblue!80!black, left=6pt, right=6pt,
+    boxrule=0.5pt, arc=1.5mm, before skip=6pt, after skip=6pt
+  },
+  flagstyle/.style={
+    colback=valamber!8, colframe=valamber!90!black, left=6pt, right=6pt,
+    boxrule=0.6pt, arc=1.5mm, before skip=6pt, after skip=6pt
+  },
+  okstyle/.style={
+    colback=valgreen!6, colframe=valgreen!90!black, left=6pt, right=6pt,
+    boxrule=0.6pt, arc=1.5mm, before skip=6pt, after skip=6pt
+  }
+}
+
+% --- Core macros -----------------------------------------
+% Formal claim with label for cross-reference
+\newcommand{\Claim}[3][]{%
+  \begin{tcolorbox}[claimstyle]
+    \textbf{Claim~\refstepcounter{claimctr}\theclaimctr}%
+    \ifstrempty{#1}{}{ (\texttt{#1})}.\label{clm:#2}\quad #3
+  \end{tcolorbox}
+}
+\newcounter{claimctr}
+
+% Flag a claim that lacks validation (prints only if showflags=true)
+\newcommand{\NeedsValidation}[2][]{%
+  \iftoggle{showflags}{%
+    \begin{tcolorbox}[flagstyle]
+      \textbf{Validation pending} \qmark
+      \ifstrempty{#1}{}{ — Scope: \emph{#1}}. \\
+      Missing: #2
+    \end{tcolorbox}
+  }{}
+}
+
+% Mark a claim as validated, with provenance
+\newcommand{\ValidatedBy}[3]{%
+  \begin{tcolorbox}[okstyle]
+    \textbf{Validated} \cmark\;— Evidence: #1; Figure(s): #2; Commit/Tag: \texttt{#3}
+  \end{tcolorbox}
+}
+
+% Section-level checklist (Guardian-style)
+\newenvironment{ValidationChecklist}[1][]{
+  \begin{tcolorbox}[claimstyle,title={Validation Checklist \ifstrempty{#1}{}{— #1}}]
+  \begin{itemize}
+}{
+  \end{itemize}
+  \end{tcolorbox}
+}
+
+% Convenience: checkbox items
+\newcommand{\CheckDone}[1]{\item[\cmark] #1}
+\newcommand{\CheckTodo}[1]{\item[\xmark] #1}
+\newcommand{\CheckOpen}[1]{\item[\qmark] #1}
+
+% Validation matrix table (claims ↔ tests)
+\newenvironment{ValidationMatrix}{
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{p{0.38\linewidth} p{0.22\linewidth} p{0.16\linewidth} p{0.16\linewidth}}
+\hline
+\textbf{Claim (ID)} & \textbf{Test/Analysis} & \textbf{Figure/Ref} & \textbf{Status} \\
+\hline
+}{
+\\\hline
+\end{tabular}
+\caption{Validation matrix mapping claims to concrete tests/figures and status.}
+\label{tab:validation-matrix}
+\end{table}
+}

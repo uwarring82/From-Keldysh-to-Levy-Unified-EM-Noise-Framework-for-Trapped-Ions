@@ -21,6 +21,10 @@
 \usepackage{hyperref}
 \usepackage{enumitem} % for [leftmargin=*,nosep] in itemize/enumerate
 
+% === Validation tooling
+\input{tex/preamble_validation.tex}
+% \togglefalse{showflags} % uncomment for clean draft without flags
+
 \hypersetup{
   colorlinks = true,
   linkcolor = blue,
@@ -46,6 +50,21 @@ A Guide for Noise Characterization Experiments}
 \begin{abstract}
 Trapped-ion experiments measure motional decoherence from multiple sources—electronic noise, patch potentials, background gas collisions, and other disturbances. Currently, different mechanisms are analyzed using different methods, and it is often unclear which measurements identify which sources. We show that all electromagnetically coupled noise falls into three categories based on event statistics: continuous fluctuations (Gaussian diffusion), occasional kicks (compound-Poisson jumps), or rare large impacts (Lévy flights). Each category produces distinctive experimental signatures requiring different measurement strategies: spectral methods for continuous noise, higher-order cumulants for occasional kicks, and waiting-time distributions for rare impacts. We provide a decision table mapping noise characteristics to optimal measurements, connect observable statistics to underlying physical parameters (scattering cross-sections, trap geometry, gas properties), and give inference protocols for mixed scenarios. The classification is exhaustive—any electromagnetically coupled disturbance must fall into one of these three categories—and we develop it using field noise and gas collisions as worked examples. The result is a practical guide for designing noise characterization experiments and identifying dominant decoherence mechanisms in trapped-ion quantum computers and precision measurement devices.
 \end{abstract}
+
+\section{Validation Framework}
+\label{sec:validation-framework}
+We distinguish between formal claims and their empirical/theoretical validation.
+Claims are introduced via \texttt{\string\Claim} and are either \emph{validated}
+(\texttt{\string\ValidatedBy}) or \emph{flagged} as pending
+(\texttt{\string\NeedsValidation}). A living matrix (Tab.~\ref{tab:validation-matrix})
+tracks coverage and status.
+
+\begin{ValidationMatrix}
+Claim~\ref{clm:levy-crossover} & $\kappa_3$, waiting-time spectrum, Allan var. across $\lambda\tau$ grid
+& Fig.~3 & Pending \\
+Claim~\ref{clm:gauss-limit} & Master-eq. sim in Gaussian limit ($\alpha\to2$), MLE fits
+& Fig.~2 & Validated \\
+\end{ValidationMatrix}
 
 %------------------- Section Includes --------------
 \input{sections/01_introduction}
