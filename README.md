@@ -130,9 +130,8 @@ trapped-ion systems. No prior knowledge of Keldysh formalism or Lévy processes 
 # Numerical Validation: Two-Pillar Structure
 
 ## Overview
-
-We validate the unified EM-noise framework through two independent, complementary tests that separate statistical inference from physical modeling. The Brownnutt et al. (2015) review concludes that ion trap heating mechanisms remain "poorly understood" despite 15+ years of study. Multiple candidate mechanisms (patch potentials, adatom dipoles, two-level fluctuators) produce overlapping experimental signatures, making source identification challenging. Our framework provides discriminants to separate Gaussian vs Poisson vs Lévy statistics, but these must be validated numerically before experimental application. Our two-pillar validation (classification power + Green tensor accuracy) ensures the framework's discriminants have sufficient power to separate mechanisms in realistic experimental conditions.
----
+The Brownnutt et al. (2015) review concludes that ion trap heating mechanisms remain "poorly understood" despite 15+ years of study. Multiple candidate mechanisms (patch potentials, adatom dipoles, two-level fluctuators) produce overlapping experimental signatures, making source identification challenging. Our framework provides discriminants to separate Gaussian vs Poisson vs Lévy statistics, but these must be validated numerically before experimental application. We aim to validate the uframework through two independent, complementary tests that separate statistical inference from physical modeling. 
+Our two-pillar validation (classification power + Green tensor accuracy) ensures the framework's discriminants have sufficient power to separate mechanisms in realistic experimental conditions.
 
 ## Pillar 1: Classification Power (Pure Statistics)
 
