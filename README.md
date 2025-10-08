@@ -125,13 +125,118 @@ trapped-ion systems. No prior knowledge of Keldysh formalism or Lévy processes 
 
 **Draft in preparation**
 
-## Numerical Validation — Initial Aim
 
-We will implement a **master-equation–centred, modular numerical pipeline** to benchmark the unified EM-noise framework across **dense ↔ sparse** interaction regimes. Phase-1 scope:
-- **Backend 1 (ME/Wigner):** Harmonic mode with Gaussian diffusion + Poisson/Lévy momentum-kick superoperator; Krylov/FFT time-propagation.
-- **Backend 2 (Trajectories):** Gillespie-style “synthetic experiment” engine to mirror stroboscopic measurements and rare events.
-- **Backend 3 (Moments):** Low-order moment ODEs with cumulant closure for fast parameter sweeps.
-- **Outputs:** ⟨n⟩(t), \(P(n\!\mid\!\tau)\), excess kurtosis, and a regime map over \((\lambda,\alpha)\) validating diffusion, renewal, and fractional approximations.
-- **Reproducibility:** Jupyter notebooks + CI artifacts for figures and summary tables.
 
-This step establishes a numerically controlled bridge between our analytic limits (diffusive, renewal, fractional) and experiment-like observables.
+# Numerical Validation: Two-Pillar Structure
+
+## Overview
+
+We validate the unified EM-noise framework through two independent, complementary tests that separate statistical inference from physical modeling.
+
+---
+
+## Pillar 1: Classification Power (Pure Statistics)
+
+**Question**: *Can experimental discriminants distinguish noise regimes with realistic sample sizes?*
+
+**What we test**:
+- Given **perfect knowledge** of noise sources (λ, S_F(ω), ν(Δp))
+- Generate synthetic stroboscopic measurements (N shots)
+- Apply discriminants: skewness κ₃, waiting-time distributions, Allan variance
+- Classify regime as Gaussian, Poisson, or Lévy
+
+**Success criteria**:
+- ✅ Confusion matrix diagonal >90% for N ≥ 10⁴ shots
+- ✅ Crossover regime (λτ ~ 1) correctly identified
+- ✅ Minimum shot counts documented for 3σ separation
+
+**What this validates**: The framework's **information content**—whether the proposed observables actually distinguish mechanisms.
+
+**What it catches**: Under-sampling, statistical artifacts, insufficient discriminant power.
+
+---
+
+## Pillar 2: Green Tensor Accuracy (Physical Predictions)
+
+**Question**: *Does the electromagnetic coupling model correctly predict heating rates and cross-sections?*
+
+**What we test**:
+- Compute Green tensor G(r₀,r;ω) for realistic trap geometry
+- Predict heating rate Γ_heat from Johnson noise spectrum
+- Predict collision cross-sections σ from scattering theory
+- Compare to literature benchmarks (Brownnutt et al., Oghittu et al.)
+
+**Success criteria**:
+- ✅ Heating rate predictions within factor of 2 of measurements
+- ✅ Cross-section predictions within 20% of literature
+- ✅ Geometry sensitivity (±10% perturbations) quantified
+- ✅ Dominant systematic uncertainties documented
+
+**What this validates**: The framework's **physical accuracy**—whether Maxwell equations + trap geometry + scattering models reproduce observed effects.
+
+**What it catches**: Wrong source model, geometry errors, incorrect cross-sections, missing mechanisms.
+
+---
+
+## Why Two Pillars?
+
+| Failure Mode | Pillar 1 Detects | Pillar 2 Detects |
+|--------------|------------------|------------------|
+| Insufficient statistics | ✓ | — |
+| Wrong noise classification | ✓ | — |
+| Wrong absolute rate | — | ✓ |
+| Geometry errors | — | ✓ |
+| Additional mechanisms (e.g., outgassing) | ✓ (non-stationarity) | ✓ (rate mismatch) |
+| Coherent pickup (e.g., 60 Hz) | ✓ (periodic Allan variance) | ✓ (spectral line) |
+
+**Complementary coverage**: Pillar 1 catches *statistical* failures; Pillar 2 catches *systematic* failures.
+
+**Total uncertainty**: σ²_total = σ²_stat + σ²_sys (requires both pillars)
+
+---
+
+## Validation Status
+
+**Pillar 1**: [ ] Implement three backends (ME, Trajectories, Moments)  
+**Pillar 1**: [ ] Generate confusion matrix over (λτ, α) space  
+**Pillar 1**: [ ] Document minimum shot counts
+
+**Pillar 2**: [ ] Compute Green tensor for benchmark trap  
+**Pillar 2**: [ ] Validate heating rate predictions  
+**Pillar 2**: [ ] Validate cross-section calculations  
+**Pillar 2**: [ ] Quantify geometry sensitivity
+
+**Integration**: [ ] End-to-end blind classification test
+
+---
+
+## Guardian Certification Criterion
+
+✅ Framework is **validated** when:
+1. Pillar 1 achieves >90% classification accuracy across tested regimes
+2. Pillar 2 predictions agree with literature within stated uncertainties
+3. Both pillars independently confirm regime classification for test cases
+
+❌ Framework **fails validation** if:
+- Confusion matrix shows systematic misclassification (e.g., Gaussian tails classified as Poisson)
+- Green tensor predictions disagree with measurements by >2×
+- Geometry sensitivity >50% (manufacturing tolerances dominate)
+
+---
+
+## Outputs
+
+**For users of the framework**:
+- Regime map with confidence boundaries
+- Minimum shot requirements per (λτ, α)
+- Uncertainty budget: statistical vs systematic contributions
+- Decision boundaries for experimental classification
+
+**For flyby detection**:
+- Pre-computed P(n|τ) for candidate dark matter scenarios
+- Required discrimination power vs background
+- Validated connection: astrophysical flux → λ → observable signatures
+
+---
+
+*Protective Principle*: "Validate what you can measure (statistics) separately from what you can model (physics)—errors hide where the two meet."
