@@ -65,16 +65,6 @@ The heating rate is
 with $x_0=\sqrt{\hbar/(2m\omega_t)}$.
 In equilibrium, detailed balance gives $S_F(-\omega_t)/S_F(+\omega_t)=e^{-\hbar\omega_t/k_BT}$.
 
-\Claim{gauss-limit}{
-In the high-rate limit the unified model reduces to Gaussian diffusion with
-a heating rate consistent with the standard spectral-density picture.
-}
-
-\ValidatedBy{Master-equation backend (preset: \texttt{gauss-limit-A});
-unit tests \texttt{test_gauss_limit.py}}
-{2(a--c)}
-{commit abc1234}
-
 \subsection{Poisson Bath $\to$ Jumps}
 For sparse scatterers, $\mathbf{J}$ is a sum of impulses $\mathbf{j}_k(t-t_k)$.
 The effective dynamics are compound-Poisson: each event imparts momentum $\Delta p$, with rate $\lambda$ and distribution $\nu(\Delta p)$.
