@@ -1,30 +1,31 @@
+import pathlib
+import sys
+
 import numpy as np
-import pytest
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 from unified_noise import ModelParams
-from unified_noise.analytics import trace
 from unified_noise.solver_me import MasterEquationSolver
 
 
-def test_smoke_stub_evolve_raises():
-    # Minimal parameters (values here are placeholders)
+def test_evolve_runs_and_shapes():
     p = ModelParams(
-        m=6.64e-26,  # 40 amu
-        omega=2 * np.pi * 2e6,  # 2 MHz
-        gamma=2 * np.pi * 5e3,  # 5 kHz
-        kBT_eff=4.1e-21,  # room temp ~ kB*T
-        lam=0.0,  # no jumps in smoke test
+        m=6.64e-26,
+        omega=2 * np.pi * 2e6,
+        gamma=2 * np.pi * 5e3,
+        kBT_eff=4.1e-21,
+        lam=0.0,
         jump_law="gauss",
         jump_pars={"sigma_p": 1.0},
         nbar_bath=0.05,
     )
     N = 10
     solver = MasterEquationSolver(N=N, params=p)
-    # vacuum state ρ0 = |0><0|
     rho0 = np.zeros((N, N), dtype=complex)
     rho0[0, 0] = 1.0
-    assert abs(trace(rho0) - 1.0) < 1e-12
-
-    # For now, evolve should raise NotImplementedError (placeholder milestone)
-    with pytest.raises(NotImplementedError):
-        solver.evolve(rho0, t_grid=[0.0, 1e-6])
+    out = solver.evolve(rho0, [0.0, 1e-6, 2e-6])
+    assert len(out) == 2
+    for rho in out:
+        assert rho.shape == (N, N)
+        assert np.isclose(np.trace(rho), 1.0, atol=1e-10)
